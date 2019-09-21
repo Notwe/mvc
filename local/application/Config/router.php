@@ -39,8 +39,8 @@ class Router{
 
     public function start(){
          if($this->route_match()){
-             $controller = 'application\Controller\lib\\'.$this->route_param['controller'].'Controller';
-             echo $controller;
+             $string = 'application\Controller\lib\\'.$this->route_param['controller'].'Controller';
+             echo $string;
          }
      }
 }
