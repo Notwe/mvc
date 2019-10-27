@@ -15,8 +15,6 @@
         );
         // if($this->db->connect_error){
         //     die('Ошибка подключения (' . $this->db->connect_errno . ')');
-        // }else{
-        //     echo 'красава';
         // }
 
      }

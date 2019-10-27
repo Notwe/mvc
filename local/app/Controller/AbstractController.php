@@ -9,8 +9,10 @@ abstract class AbstractController{
     public $model;
     public $page_params;
     public $user_data = [];
+    public $request;
 
-    function __construct($route){
+    function __construct($route, $methodRequest){
+        $this->request = $methodRequest;
         $this->route_path = $route;
         //load models
         $this->model = $this->model($route['controller']);
@@ -29,18 +31,18 @@ abstract class AbstractController{
     }
 
     public function check_user_coockie(){
-        if(!empty($_COOKIE['login']) && !empty($_COOKIE['pass'])){
-            if($this->model->find_user(trim($_COOKIE['login']), trim($_COOKIE['pass'])) === true){
-                $this->user_data = $this->model->get_user_data($_COOKIE['login'], $_COOKIE['pass']);
+        $login = trim($this->request->CookieGet('login'));
+        $password = trim($this->request->CookieGet('pass'));
+        if(!empty($login) && !empty($password)){
+            if($this->model->find_user($login, $password) === true){
+                $this->user_data = $this->model->get_user_data($login, $password);
                 $this->page_params->user_data = $this->user_data;
                 return true;
                 }
-            }else{
-                setcookie('login', "", time() -100500, '/');
-                setcookie('pass', "", time() -100500, '/');
-                return false;
-        }
-
+            }
+        $this->request->CookieSet('login', '', time() -100500);
+        $this->request->CookieSet('pass', '', time() -100500);
+        return false;
     }
 
 }

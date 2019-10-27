@@ -91,6 +91,7 @@ class AccountController extends AbstractController{
                 return $error_messages;
 
             }else{
+                //$this->model->get_user_data($post_data['login'],$password);
                 if($this->model->register_user($post_data['login'],$password,$post_data['email'])){
                     $this->user_data = $this->model->get_user_data($post_data['login'],$password);
                 }
@@ -103,11 +104,12 @@ class AccountController extends AbstractController{
 
 
     public function POST_data(){
-        if(isset($_POST)&& !empty($_POST)){
+        $data = $this->request->methodPost();
+        if(isset($data)&& !empty($data)){
             $error_message = $this->{$this->error_message}(array_map('trim',$_POST));
             if(empty($error_message)) {
-                setcookie('login', $this->user_data['name'], time() +100000, '/');
-                setcookie('pass', $this->user_data['password'], time() +100000, '/');
+                $this->request->CookieSet('login', $this->user_data['name'], time() +100000);
+                $this->request->CookieSet('pass', $this->user_data['password'], time() +100000);
                 exit;
             }
             else{
