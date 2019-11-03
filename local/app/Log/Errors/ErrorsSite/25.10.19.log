@@ -1,6 +1,0 @@
-18:55:42 NOTICE - Уведомление Undefined variable: page_script /var/www/local/app/View/Template/general.tpl line 8
-18:55:43 NOTICE - Уведомление Undefined variable: page_script /var/www/local/app/View/Template/general.tpl line 8
-18:55:59 NOTICE - Уведомление Undefined variable: page_script /var/www/local/app/View/Template/general.tpl line 8
-18:55:59 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
-18:55:59 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
-18:56:00 NOTICE - Уведомление Undefined variable: page_script /var/www/local/app/View/Template/general.tpl line 8

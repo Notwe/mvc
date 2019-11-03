@@ -1,8 +1,0 @@
-13:53:06 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Config\lib\Database\QueryParams::__construct() must be an instance of mysqli, instance of app\Config\lib\Database\Database given, called in /var/www/local/app/Config/lib/Database/QueryConfig.php on line 14 and defined in /var/www/local/app/Config/lib/Database/QueryParams.php:10
-Stack trace:
-#0 /var/www/local/app/Config/lib/Database/QueryConfig.php(14): app\Config\lib\Database\QueryParams->__construct(Object(app\Config\lib\Database\Database))
-#1 /var/www/local/app/Model/AbstractModel.php(17): app\Config\lib\Database\QueryConfig->__construct(Object(app\Config\lib\Database\Database))
-#2 /var/www/local/app/Controller/AbstractController.php(29): app\Model\AbstractModel->__construct()
-#3 /var/www/local/app/Controller/AbstractController.php(18): app\Controller\AbstractController->model('account')
-#4 /var/www/local/app/Config/Core/Dispatcher.php(27): app\Controller\AbstractController->__construct(Array, Object(app\Config\Core\Request))
-#5 /var/www/local/app/Config/Core/Dis /var/www/local/app/Config/lib/Database/QueryParams.php line 10
