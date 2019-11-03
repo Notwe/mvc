@@ -3,6 +3,9 @@
 namespace app\Controller;
 use app\View\View;
 use app\View\Config\PageParams;
+
+//TODO модель в классе может быть не одна. Не нужно ее динамически подключать (ее нужно передавать аргументом
+// класса
 abstract class AbstractController{
     public $route_path;
     public $view;
@@ -32,6 +35,7 @@ abstract class AbstractController{
         }
     }
 
+    //TODO логику вынести в модель. Поправить орфографические ошибки
     public function check_user_coockie(){
         $login = trim($this->request->CookieGet('login'));
         $password = trim($this->request->CookieGet('pass'));

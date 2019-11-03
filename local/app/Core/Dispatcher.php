@@ -2,6 +2,7 @@
 
 namespace app\Core;
 
+//TODO Dispatcher должен возвращать результат работы Контроллера (Response)
 class Dispatcher{
 
     private $controller;

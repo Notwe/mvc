@@ -4,11 +4,13 @@ namespace app\Component\DependencyInjection;
 
 use app\Component\DependencyInjection\DefaultComponet;
 
+//TODO переписать полностью. Reflection не нужен
 class Container extends DefaultComponet{
 
     private $container;
     private $default_component;
 
+    //TODO базовый набор параметров должен передоватся через конструктор (замыкания!!!!!!!!!)
     public function __construct(){
         $this->container = new \stdClass();
         $this->default_component = $this->getDefaultComponent();

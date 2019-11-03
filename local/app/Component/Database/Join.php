@@ -24,7 +24,7 @@ class Join{
 
     }
 
-
+    //TODO убрать дублирование кода
     private function prepareQueryJoin($param){
         if (is_double($param)) {
             return (double) $param;

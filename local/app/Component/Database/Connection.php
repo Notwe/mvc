@@ -1,6 +1,8 @@
 <?php
 
 namespace app\Component\Database;
+
+//TODO вынести в сервис-контейнер
 class Connection{
 
     private $database_config;
