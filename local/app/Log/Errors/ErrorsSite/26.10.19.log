@@ -1,0 +1,222 @@
+01:01:02 ERROR - Фатальная ошибка Uncaught Error: Class 'app\Config\Core\app\Config\lib\Errors\Request' not found in /var/www/local/app/Config/Core/Dispatcher.php:14
+Stack trace:
+#0 /var/www/local/index.php(9): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 14
+01:01:19 ERROR - Фатальная ошибка Uncaught Error: Call to private method app\Config\Core\Request::getURL() from context 'app\Config\Core\Dispatcher' in /var/www/local/app/Config/Core/Dispatcher.php:14
+Stack trace:
+#0 /var/www/local/index.php(9): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 14
+01:26:57 NOTICE - Уведомление Undefined variable: path /var/www/local/app/Config/Core/Dispatcher.php line 20
+01:26:57 NOTICE - Уведомление Undefined property: app\Config\Core\Dispatcher::$ /var/www/local/app/Config/Core/Dispatcher.php line 20
+01:26:57 ERROR - Фатальная ошибка Uncaught Error: Class 'app\Config\Core\View' not found in /var/www/local/app/Config/Core/Dispatcher.php:30
+Stack trace:
+#0 /var/www/local/app/Config/Core/Dispatcher.php(15): app\Config\Core\Dispatcher->loadController()
+#1 /var/www/local/index.php(9): app\Config\Core\Dispatcher->__construct()
+#2 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 30
+01:27:21 NOTICE - Уведомление Undefined variable: path /var/www/local/app/Config/Core/Dispatcher.php line 20
+01:27:21 NOTICE - Уведомление Undefined property: app\Config\Core\Dispatcher::$ /var/www/local/app/Config/Core/Dispatcher.php line 20
+01:29:23 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+01:29:23 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+14:06:05 NOTICE - Уведомление Undefined property: app\Config\Core\Request::$headers /var/www/local/app/Config/Core/Request.php line 32
+14:06:05 ERROR - Фатальная ошибка Uncaught Error: Call to a member function has() on null in /var/www/local/app/Config/Core/Request.php:32
+Stack trace:
+#0 /var/www/local/app/Config/Core/Request.php(11): app\Config\Core\Request->getMethod()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(13): app\Config\Core\Request->__construct()
+#2 /var/www/local/index.php(9): app\Config\Core\Dispatcher->__construct()
+#3 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 32
+16:36:55 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\Core\Request::getIsPost() in /var/www/local/app/Config/Core/Request.php:11
+Stack trace:
+#0 /var/www/local/app/Config/Core/Dispatcher.php(13): app\Config\Core\Request->__construct()
+#1 /var/www/local/index.php(9): app\Config\Core\Dispatcher->__construct()
+#2 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 11
+16:55:25 NOTICE - Уведомление Undefined index:  /var/www/local/app/Config/Core/Request.php line 32
+17:14:34 NOTICE - Уведомление Undefined variable: name /var/www/local/app/Config/Core/Request.php line 39
+17:18:23 NOTICE - Уведомление Undefined variable: name /var/www/local/app/Config/Core/Request.php line 42
+17:25:13 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+17:25:13 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(25): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(15): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+17:25:34 NOTICE - Уведомление Undefined variable: request /var/www/local/app/Controller/lib/AccountController.php line 106
+17:25:34 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(25): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(15): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+17:28:39 NOTICE - Уведомление Undefined variable: request /var/www/local/app/Controller/lib/AccountController.php line 106
+17:28:39 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$ /var/www/local/app/Controller/lib/AccountController.php line 106
+17:28:39 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(25): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(15): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+17:29:22 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+17:29:22 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(25): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(15): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+17:30:48 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+17:30:48 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(25): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(15): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+17:31:15 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:09:29 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Config\Core\Dispatcher::__construct(), 0 passed in /var/www/local/index.php on line 10 and exactly 1 expected in /var/www/local/app/Config/Core/Dispatcher.php:13
+Stack trace:
+#0 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 13
+20:10:05 ERROR - Фатальная ошибка Uncaught TypeError: Argument 2 passed to app\Controller\AbstractController::__construct() must be an instance of app\Controller\Request, instance of app\Config\Core\Request given, called in /var/www/local/app/Config/Core/Dispatcher.php on line 26 and defined in /var/www/local/app/Controller/AbstractController.php:14
+Stack trace:
+#0 /var/www/local/app/Config/Core/Dispatcher.php(26): app\Controller\AbstractController->__construct(Array, Object(app\Config\Core\Request))
+#1 /var/www/local/app/Config/Core/Dispatcher.php(17): app\Config\Core\Dispatcher->loadController()
+#2 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#3 {main}
+  thrown /var/www/local/app/Controller/AbstractController.php line 14
+20:11:00 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:11:21 NOTICE - Уведомление Undefined variable: request /var/www/local/app/Controller/lib/AccountController.php line 107
+20:11:21 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:107
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(27): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(17): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 107
+20:12:06 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:12:46 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:12:46 ERROR - Фатальная ошибка Uncaught Error: Call to a member function getUrl() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(27): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(17): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+20:15:32 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Config\Core\Dispatcher::__construct(), 0 passed in /var/www/local/index.php on line 10 and exactly 1 expected in /var/www/local/app/Config/Core/Dispatcher.php:13
+Stack trace:
+#0 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 13
+20:21:22 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Config\Core\Dispatcher::__construct(), 0 passed in /var/www/local/index.php on line 10 and exactly 1 expected in /var/www/local/app/Config/Core/Dispatcher.php:13
+Stack trace:
+#0 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 13
+20:32:42 ERROR - Фатальная ошибка Uncaught Error: Class 'app\Config\Core\app\Config\Core\Request' not found in /var/www/local/app/Config/Core/Dispatcher.php:14
+Stack trace:
+#0 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 14
+20:33:20 ERROR - Фатальная ошибка Uncaught Error: Class 'app\Config\Core\app\Config\Core\Request' not found in /var/www/local/app/Config/Core/Dispatcher.php:14
+Stack trace:
+#0 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#1 {main}
+  thrown /var/www/local/app/Config/Core/Dispatcher.php line 14
+20:35:22 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:36:27 NOTICE - Уведомление Undefined property: app\Controller\lib\AccountController::$request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:37:37 NOTICE - Уведомление Undefined variable: request /var/www/local/app/Controller/lib/AccountController.php line 106
+20:37:37 ERROR - Фатальная ошибка Uncaught Error: Call to a member function methodPost() on null in /var/www/local/app/Controller/lib/AccountController.php:106
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#1 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->loginAction()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#3 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#4 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 106
+21:35:29 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:35:29 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:35:29 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:35:29 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:36:43 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:36:43 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:36:44 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:36:44 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:39:27 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:39:27 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:39:28 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:39:28 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:40:20 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 48
+21:41:57 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:41:57 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:43:47 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:43:47 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:45:06 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:45:06 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:45:22 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:45:22 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:45:52 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:45:52 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:46:33 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:46:33 NOTICE - Уведомление A non well formed numeric value encountered /var/www/local/app/Config/Core/Request.php line 49
+21:54:34 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+21:54:34 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 34
+21:54:34 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+21:54:34 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 35
+21:56:23 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+21:56:23 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+21:57:09 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+21:57:09 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+21:57:23 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+21:57:23 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+22:03:07 ERROR - Фатальная ошибка Uncaught Error: Call to undefined function app\Config\Core\debu() in /var/www/local/app/Config/Core/Request.php:48
+Stack trace:
+#0 /var/www/local/app/Controller/AbstractController.php(43): app\Config\Core\Request->CookieSet('login', '''', '-100500')
+#1 /var/www/local/app/Controller/lib/AccountController.php(10): app\Controller\AbstractController->check_user_coockie()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->loginAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 48
+22:08:31 NOTICE - Уведомление Array to string conversion /var/www/local/app/Controller/lib/AccountController.php line 110
+22:08:31 NOTICE - Уведомление Array to string conversion /var/www/local/app/Controller/lib/AccountController.php line 111
+22:19:54 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+22:19:54 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 50
+22:19:54 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+22:19:54 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 50
+22:20:42 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+22:20:42 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 50
+22:20:42 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 49
+22:20:42 WARNING - Предупреждение setcookie() expects parameter 3 to be integer, string given /var/www/local/app/Config/Core/Request.php line 50
+22:22:51 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:22:51 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 34
+22:22:51 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:22:51 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 35
+22:22:53 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:22:53 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 34
+22:22:53 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:22:53 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 35
+22:23:37 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:23:37 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 34
+22:23:37 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:23:37 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 35
+22:23:41 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:23:41 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 34
+22:23:41 NOTICE - Уведомление Undefined variable: param /var/www/local/app/Config/Core/Request.php line 56
+22:23:41 WARNING - Предупреждение trim() expects parameter 1 to be string, array given /var/www/local/app/Controller/AbstractController.php line 35
+22:26:43 NOTICE - Уведомление Undefined index: login /var/www/local/app/Config/Core/Request.php line 59
+22:36:37 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+22:36:37 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18

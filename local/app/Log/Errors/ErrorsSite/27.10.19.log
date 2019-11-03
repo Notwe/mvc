@@ -1,0 +1,333 @@
+10:29:55 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+10:29:55 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+10:30:13 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\lib\Database\QueryConfig::unset_empty_key() in /var/www/local/app/Config/lib/Database/QueryConfig.php:21
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(23): app\Config\lib\Database\QueryConfig->construct_query(Array)
+#1 /var/www/local/app/Model/AbstractModel.php(71): app\Model\AbstractModel->get_result_query(Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(35): app\Model\AbstractModel->find_user('111', 'f6e0a1e2ac41945...')
+#3 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->authorise(Array)
+#4 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->loginAction()
+#6 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#7 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+# /var/www/local/app/Config/lib/Database/QueryConfig.php line 21
+10:30:19 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\lib\Database\QueryConfig::unset_empty_key() in /var/www/local/app/Config/lib/Database/QueryConfig.php:21
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(23): app\Config\lib\Database\QueryConfig->construct_query(Array)
+#1 /var/www/local/app/Model/AbstractModel.php(71): app\Model\AbstractModel->get_result_query(Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(35): app\Model\AbstractModel->find_user('111', 'f6e0a1e2ac41945...')
+#3 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->authorise(Array)
+#4 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->loginAction()
+#6 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#7 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+# /var/www/local/app/Config/lib/Database/QueryConfig.php line 21
+10:31:45 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Config\lib\Database\QueryConfig::SELECT() must be of the type string, array given, called in /var/www/local/app/Config/lib/Database/QueryConfig.php on line 21 and defined in /var/www/local/app/Config/lib/Database/QueryConfig.php:43
+Stack trace:
+#0 /var/www/local/app/Config/lib/Database/QueryConfig.php(21): app\Config\lib\Database\QueryConfig->SELECT(Array)
+#1 /var/www/local/app/Model/AbstractModel.php(23): app\Config\lib\Database\QueryConfig->construct_query(Array)
+#2 /var/www/local/app/Model/AbstractModel.php(71): app\Model\AbstractModel->get_result_query(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(35): app\Model\AbstractModel->find_user('111', 'f6e0a1e2ac41945...')
+#4 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->authorise(Array)
+#5 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#6 /var/www/local/app/Config/Core/Dispatcher.ph /var/www/local/app/Config/lib/Database/QueryConfig.php line 43
+10:51:03 NOTICE - Уведомление Undefined property: app\Config\lib\Database\QueryConfig::$prepareQueryParamsTest /var/www/local/app/Config/lib/Database/QueryConfig.php line 69
+10:51:03 ERROR - Фатальная ошибка Uncaught Error: Call to a member function prepareParams() on null in /var/www/local/app/Config/lib/Database/QueryConfig.php:69
+Stack trace:
+#0 /var/www/local/app/Config/lib/Database/QueryConfig.php(59): app\Config\lib\Database\QueryConfig->constructQueryString(Array)
+#1 /var/www/local/app/Config/lib/Database/QueryConfig.php(21): app\Config\lib\Database\QueryConfig->QueryToString(Array)
+#2 /var/www/local/app/Model/AbstractModel.php(23): app\Config\lib\Database\QueryConfig->construct_query(Array)
+#3 /var/www/local/app/Model/AbstractModel.php(71): app\Model\AbstractModel->get_result_query(Array)
+#4 /var/www/local/app/Controller/lib/AccountController.php(35): app\Model\AbstractModel->find_user('111', 'f6e0a1e2ac41945...')
+#5 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->authorise(Array)
+#6 /var/www/local/app/Controller/lib/AccountController.php(14): app\Controller\lib\AccountController->POST_data()
+#7 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Cont /var/www/local/app/Config/lib/Database/QueryConfig.php line 69
+12:07:17 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+12:07:17 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+12:07:31 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Model\AbstractModel::get_result_query(), 1 passed in /var/www/local/app/Model/lib/AccountModel.php on line 22 and exactly 2 expected in /var/www/local/app/Model/AbstractModel.php:22
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->get_result_query(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 22
+12:09:24 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Model\AbstractModel::get_result_query(), 1 passed in /var/www/local/app/Model/lib/AccountModel.php on line 22 and exactly 2 expected in /var/www/local/app/Model/AbstractModel.php:22
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->get_result_query(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 22
+12:11:05 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Model\AbstractModel::get_result_query(), 1 passed in /var/www/local/app/Model/lib/AccountModel.php on line 22 and exactly 2 expected in /var/www/local/app/Model/AbstractModel.php:22
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->get_result_query(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 22
+12:11:28 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Model\AbstractModel::get_result_query(), 1 passed in /var/www/local/app/Model/lib/AccountModel.php on line 22 and exactly 2 expected in /var/www/local/app/Model/AbstractModel.php:22
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->get_result_query(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 22
+13:54:19 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\lib\AccountModel::get_result_query() in /var/www/local/app/Model/lib/AccountModel.php:22
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#1 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#5 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#6 {main}
+  thrown /var/www/local/app/Model/lib/AccountModel.php line 22
+13:56:06 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\AbstractModel::select() must be of the type string, array given, called in /var/www/local/app/Model/lib/AccountModel.php on line 22 and defined in /var/www/local/app/Model/AbstractModel.php:76
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 76
+13:57:01 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\lib\Database\QueryConfig::constructQueryString() in /var/www/local/app/Config/lib/Database/QueryConfig.php:67
+Stack trace:
+#0 /var/www/local/app/Config/lib/Database/QueryConfig.php(48): app\Config\lib\Database\QueryConfig->QueryToString(Array)
+#1 /var/www/local/app/Model/AbstractModel.php(78): app\Config\lib\Database\QueryConfig->select('user', Array, Array)
+#2 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#4 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#5 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#6 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#7 /var/www/local/app/Config/Core/Dispatcher.php( /var/www/local/app/Config/lib/Database/QueryConfig.php line 67
+13:59:26 NOTICE - Уведомление Undefined variable: conditions /var/www/local/app/Config/lib/Database/QueryConfig.php line 78
+13:59:26 NOTICE - Уведомление Undefined variable: add_quotes_for_string /var/www/local/app/Config/lib/Database/QueryConfig.php line 78
+13:59:26 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Config/lib/Database/QueryParams.php line 17
+13:59:26 ERROR - Фатальная ошибка Uncaught TypeError: Return value of app\Config\lib\Database\QueryParams::prepareParams() must be of the type array, null returned in /var/www/local/app/Config/lib/Database/QueryParams.php:20
+Stack trace:
+#0 /var/www/local/app/Config/lib/Database/QueryConfig.php(78): app\Config\lib\Database\QueryParams->prepareParams(NULL, NULL)
+#1 /var/www/local/app/Config/lib/Database/QueryConfig.php(67): app\Config\lib\Database\QueryConfig->constructQueryString(Array)
+#2 /var/www/local/app/Config/lib/Database/QueryConfig.php(48): app\Config\lib\Database\QueryConfig->QueryToString(Array)
+#3 /var/www/local/app/Model/AbstractModel.php(78): app\Config\lib\Database\QueryConfig->select('user', Array, Array)
+#4 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#5 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#6 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->regis /var/www/local/app/Config/lib/Database/QueryParams.php line 20
+13:59:57 NOTICE - Уведомление Undefined variable: add_quotes_for_string /var/www/local/app/Config/lib/Database/QueryParams.php line 51
+14:13:35 NOTICE - Уведомление Array to string conversion /var/www/local/app/Config/lib/Database/QueryConfig.php line 86
+14:21:01 NOTICE - Уведомление Array to string conversion /var/www/local/app/Config/lib/Database/QueryConfig.php line 83
+14:26:43 NOTICE - Уведомление Array to string conversion /var/www/local/app/Config/lib/Database/QueryConfig.php line 83
+14:32:58 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\lib\Database\QueryParams::prepareParam() in /var/www/local/app/Config/lib/Database/QueryParams.php:18
+Stack trace:
+#0 /var/www/local/app/Config/lib/Database/QueryConfig.php(77): app\Config\lib\Database\QueryParams->getQueryParams(Array)
+#1 /var/www/local/app/Config/lib/Database/QueryConfig.php(67): app\Config\lib\Database\QueryConfig->constructQueryString(Array)
+#2 /var/www/local/app/Config/lib/Database/QueryConfig.php(48): app\Config\lib\Database\QueryConfig->QueryToString(Array)
+#3 /var/www/local/app/Model/AbstractModel.php(78): app\Config\lib\Database\QueryConfig->select('user', Array, Array)
+#4 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#5 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1212@q')
+#6 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#7 /var/www/local/app/Controll /var/www/local/app/Config/lib/Database/QueryParams.php line 18
+14:35:53 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+14:35:53 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+14:42:51 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+14:42:51 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+14:48:22 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+14:48:22 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+14:53:37 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\AbstractModel::num_rows() must be an object, boolean given, called in /var/www/local/app/Model/AbstractModel.php on line 69 and defined in /var/www/local/app/Model/AbstractModel.php:27
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(69): app\Model\AbstractModel->num_rows(false)
+#1 /var/www/local/app/Controller/lib/AccountController.php(89): app\Model\AbstractModel->find_user('111')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 27
+15:32:32 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\lib\Database\QueryConfig::select() in /var/www/local/app/Model/AbstractModel.php:75
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1@1121.com')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 75
+15:32:43 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+15:32:43 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+15:32:50 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Config\lib\Database\QueryConfig::select() in /var/www/local/app/Model/AbstractModel.php:75
+Stack trace:
+#0 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1@1121.com')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 75
+15:34:15 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\lib\AccountModel::selectQuery() in /var/www/local/app/Model/AbstractModel.php:67
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(89): app\Model\AbstractModel->find_user('1111')
+#1 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#5 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#6 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 67
+15:34:56 NOTICE - Уведомление Undefined variable: columns /var/www/local/app/Config/lib/Database/QueryConfig.php line 52
+15:34:56 WARNING - Предупреждение implode(): Invalid arguments passed /var/www/local/app/Config/lib/Database/QueryConfig.php line 52
+15:48:11 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\lib\AccountModel::get_user_data() in /var/www/local/app/Controller/lib/AccountController.php:95
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 95
+15:56:04 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\AbstractModel::fetch_assoc() must be an object, boolean given, called in /var/www/local/app/Model/AbstractModel.php on line 47 and defined in /var/www/local/app/Model/AbstractModel.php:32
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(47): app\Model\AbstractModel->fetch_assoc(false)
+#1 /var/www/local/app/Controller/lib/AccountController.php(95): app\Model\AbstractModel->get_user_data('11111', 'f6e0a1e2ac41945...')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 32
+15:56:25 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\AbstractModel::fetch_assoc() must be an object, boolean given, called in /var/www/local/app/Model/AbstractModel.php on line 47 and defined in /var/www/local/app/Model/AbstractModel.php:32
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(47): app\Model\AbstractModel->fetch_assoc(false)
+#1 /var/www/local/app/Controller/lib/AccountController.php(95): app\Model\AbstractModel->get_user_data('11111q', 'f6e0a1e2ac41945...')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 32
+15:58:26 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Config\lib\Database\Database::get_query() must be of the type string, null given, called in /var/www/local/app/Model/AbstractModel.php on line 77 and defined in /var/www/local/app/Config/lib/Database/Database.php:23
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(77): app\Config\lib\Database\Database->get_query(NULL)
+#1 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1@11ww21.com')
+#3 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#4 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#6 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher- /var/www/local/app/Config/lib/Database/Database.php line 23
+15:59:00 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Config\lib\Database\Database::get_query() must be of the type string, null given, called in /var/www/local/app/Model/AbstractModel.php on line 77 and defined in /var/www/local/app/Config/lib/Database/Database.php:23
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(77): app\Config\lib\Database\Database->get_query(NULL)
+#1 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1@11ww21.com')
+#3 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#4 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#6 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher- /var/www/local/app/Config/lib/Database/Database.php line 23
+15:59:54 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Config\lib\Database\Database::get_query() must be of the type string, null given, called in /var/www/local/app/Model/AbstractModel.php on line 77 and defined in /var/www/local/app/Config/lib/Database/Database.php:23
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(77): app\Config\lib\Database\Database->get_query(NULL)
+#1 /var/www/local/app/Model/lib/AccountModel.php(22): app\Model\AbstractModel->select('user', Array)
+#2 /var/www/local/app/Controller/lib/AccountController.php(70): app\Model\lib\AccountModel->check_user_email('1@11ww21.com')
+#3 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#4 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#6 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher- /var/www/local/app/Config/lib/Database/Database.php line 23
+16:00:43 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\lib\AccountModel::get_user_data() in /var/www/local/app/Controller/lib/AccountController.php:95
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#1 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Controller/lib/AccountController.php line 95
+16:01:14 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\AbstractModel::fetch_assoc() must be an object, boolean given, called in /var/www/local/app/Model/AbstractModel.php on line 47 and defined in /var/www/local/app/Model/AbstractModel.php:32
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(47): app\Model\AbstractModel->fetch_assoc(false)
+#1 /var/www/local/app/Controller/lib/AccountController.php(95): app\Model\AbstractModel->get_user_data('11111qw22', 'f6e0a1e2ac41945...')
+#2 /var/www/local/app/Controller/lib/AccountController.php(108): app\Controller\lib\AccountController->register(Array)
+#3 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#5 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#6 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#7 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 32
+16:02:38 ERROR - Фатальная ошибка Uncaught TypeError: Argument 2 passed to app\Config\Core\Request::CookieSet() must be of the type string, null given, called in /var/www/local/app/Controller/lib/AccountController.php on line 110 and defined in /var/www/local/app/Config/Core/Request.php:47
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(110): app\Config\Core\Request->CookieSet('login', NULL, 1572284958)
+#1 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 47
+16:02:50 ERROR - Фатальная ошибка Uncaught TypeError: Argument 2 passed to app\Config\Core\Request::CookieSet() must be of the type string, null given, called in /var/www/local/app/Controller/lib/AccountController.php on line 110 and defined in /var/www/local/app/Config/Core/Request.php:47
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(110): app\Config\Core\Request->CookieSet('login', NULL, 1572284970)
+#1 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 47
+16:04:36 ERROR - Фатальная ошибка Uncaught TypeError: Argument 2 passed to app\Config\Core\Request::CookieSet() must be of the type string, null given, called in /var/www/local/app/Controller/lib/AccountController.php on line 110 and defined in /var/www/local/app/Config/Core/Request.php:47
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(110): app\Config\Core\Request->CookieSet('login', NULL, 1572285076)
+#1 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 47
+16:05:23 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+16:05:23 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+16:09:34 ERROR - Фатальная ошибка Uncaught TypeError: Argument 2 passed to app\Config\Core\Request::CookieSet() must be of the type string, null given, called in /var/www/local/app/Controller/lib/AccountController.php on line 110 and defined in /var/www/local/app/Config/Core/Request.php:47
+Stack trace:
+#0 /var/www/local/app/Controller/lib/AccountController.php(110): app\Config\Core\Request->CookieSet('login', NULL, 1572285374)
+#1 /var/www/local/app/Controller/lib/AccountController.php(55): app\Controller\lib\AccountController->POST_data()
+#2 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#4 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#5 {main}
+  thrown /var/www/local/app/Config/Core/Request.php line 47
+16:16:54 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+16:16:54 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18
+16:17:58 NOTICE - Уведомление Undefined variable: colum /var/www/local/app/Model/AbstractModel.php line 64
+16:17:58 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\AbstractModel::num_rows() must be an object, boolean given, called in /var/www/local/app/Model/AbstractModel.php on line 69 and defined in /var/www/local/app/Model/AbstractModel.php:27
+Stack trace:
+#0 /var/www/local/app/Model/AbstractModel.php(69): app\Model\AbstractModel->num_rows(false)
+#1 /var/www/local/app/Controller/AbstractController.php(37): app\Model\AbstractModel->find_user('311122sw', '4fc82b26aecb47d...')
+#2 /var/www/local/app/Controller/lib/AccountController.php(51): app\Controller\AbstractController->check_user_coockie()
+#3 /var/www/local/app/Config/Core/Dispatcher.php(28): app\Controller\lib\AccountController->registerAction()
+#4 /var/www/local/app/Config/Core/Dispatcher.php(18): app\Config\Core\Dispatcher->loadController()
+#5 /var/www/local/index.php(10): app\Config\Core\Dispatcher->__construct()
+#6 {main}
+  thrown /var/www/local/app/Model/AbstractModel.php line 27
+16:19:29 NOTICE - Уведомление Undefined variable: colum /var/www/local/app/Model/AbstractModel.php line 64
+16:19:42 NOTICE - Уведомление Undefined variable: colum /var/www/local/app/Model/AbstractModel.php line 64
+16:20:20 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/View/Template/account/register.tpl line 18
+16:20:20 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/View/Template/account/register.tpl line 18

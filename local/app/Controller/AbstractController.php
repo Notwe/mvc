@@ -2,7 +2,7 @@
 
 namespace app\Controller;
 use app\View\View;
-use app\View\lib\PageParams;
+use app\View\Config\PageParams;
 abstract class AbstractController{
     public $route_path;
     public $view;
@@ -10,9 +10,11 @@ abstract class AbstractController{
     public $page_params;
     public $user_data = [];
     public $request;
+    public $container;
 
-    function __construct($route, $methodRequest){
-        $this->request = $methodRequest;
+    function __construct($route, $Request, $container){
+        $this->container = $container;
+        $this->request = $Request;
         $this->route_path = $route;
         //load models
         $this->model = $this->model($route['controller']);
@@ -24,9 +26,9 @@ abstract class AbstractController{
     }
 
     public function model($name){
-        $path = 'app\Model\lib\\'.ucfirst($name).'Model';
+        $path = 'app\Model\\'.ucfirst($name).'Model';
         if(class_exists($path)){
-            return new $path;
+            return new $path($this->container->get('Database'));
         }
     }
 

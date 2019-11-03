@@ -1,8 +1,8 @@
 <?php
 
 namespace app\View;
-use app\View\lib\PageTitle;
-use app\View\lib\PageParams;
+use app\View\Config\PageTitle;
+use app\View\Config\PageParams;
 class View{
     public $template_path;
     public $general_template = 'general';

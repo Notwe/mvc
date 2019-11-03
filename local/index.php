@@ -1,11 +1,11 @@
 <?php
 // Debug
-require 'app/Config/lib/debug.php';
-require 'app/Config/lib/Autoloader.php';
-(new app\Config\lib\Errors\ErrorHandler())->error_register();
+require 'app/Core/debug.php';
+require 'app/vendor/Autoloader.php';
+(new app\Component\ErrorHandler())->error_register();
 //
-use app\Config\Core\Dispatcher;
-use app\Config\Core\Request;
+use app\Core\Dispatcher;
+use app\Component\DependencyInjection\Container;
 //
-$dispatcher = new Dispatcher;
-$request = new Request;
+$dispatcher = new Dispatcher(new Container);
+// $request = new Request;

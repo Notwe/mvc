@@ -1,20 +1,18 @@
 <?php
 
 namespace app\Model;
-use app\Config\lib\Database\QueryConfig;
-use app\Config\lib\Database\Database;
-use app\View\lib\PageParams;
+
+use app\View\Config\PageParams;
 
 abstract class AbstractModel{
     public $user_data;
-    public $db;
     private $page_params;
     private $search_user;
-    private $queryConfig;
-    public function __construct(){
-        $this->db = new Database;
+    private $query_config;
+    private $db;
+    public function __construct($database){
         $this->page_params = new PageParams;
-        $this->queryConfig = new QueryConfig($this->db);
+        $this->db = $database;
 
     }
     //Mysql query
@@ -45,17 +43,17 @@ abstract class AbstractModel{
         $query = ['name'=>[$name], 'password'=>[$password]];
         $colum = ['name, password, rol_id, user_email'];
         $this->user_data = $this->fetch_array($this->select('user', $query, $colum));
-        // $user_room = $this->get_result_query(
-        //     ['1', 'room.name_room, permission_room.room_id','permission_room',
-        //     'room','permission_room.room_id =', 'room.id',
-        //     '8'=>'user', 'permission_room.user_id =', 'user.id',
-        //     '13'=>'name=', [$name] , 'password=', [$password]
-        //     ]
-        // );
-        // while($result = $this->fetch_assoc($user_room)){
-        //      $this->user_data[$result['room_id']] = $result['name_room'];
-        //
-        // }
+        $columJoin = ['room.name_room, permission_room.room_id'];
+        $queryJoin = ['JOIN'=>[
+            'room', 'permission_room.room_id'=>'room.id','JOIN'=>[
+            'user', 'permission_room.user_id ' => 'user.id']],
+            'name'=>[$name], 'password'=>[$password]];
+        debug($queryJoin);
+        $user_room = $this->select('permission_room', $queryJoin, $columJoin);
+        while($result = $this->fetch_assoc($user_room)){
+             $this->user_data[$result['room_id']] = $result['name_room'];
+
+        }
         return $this->user_data;
     }
 
@@ -73,7 +71,7 @@ abstract class AbstractModel{
     }
 
     public function select(string $table, array $queryParam, array $colum = ['*']){
-        return $this->db->get_query($this->queryConfig->selectQuery($table, $queryParam, $colum));
+        return $this->db->get_query($table, $queryParam, $colum);
     }
     public function insert( string $table, array $queryParam, array $colum){
         return $this->db->get_query($this->queryConfig->insertQuery($table, $queryParam, $colum));

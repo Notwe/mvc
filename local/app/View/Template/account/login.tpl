@@ -1,3 +1,6 @@
+<head>
+	<script type="text/javascript" src="/public/scripts/account/autorise.js"></script>
+</head>
 <div class='background_blure'></div>
 <div class='clyde_message_login'>
 	<ul class='clyde_message'>
