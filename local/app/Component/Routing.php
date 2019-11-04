@@ -1,8 +1,10 @@
 <?php
 namespace app\Component;
-
+//TODO переименовать в Routes
+//TODO $pages должны приходить извне (из файла конфигурации массивом и передаватся в конструктор)
+//TODO $page в $routes
 class Routing{
-    public $page = array();
+    public $page = [];
 
     function __construct(){
         $this->page =

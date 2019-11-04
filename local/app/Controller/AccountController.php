@@ -2,7 +2,7 @@
 namespace app\Controller;
 use app\Controller\AbstractController;
 class AccountController extends AbstractController{
-
+    //TODO давать логические названия переменным
     public $error_message;
 
 // Autorise
@@ -17,7 +17,7 @@ class AccountController extends AbstractController{
     }
 
 
-
+    //TODO логику вынести в модель
     public function authorise(array $login_post_data){
         $error_messages = [];
         if(empty($login_post_data['login'])){
@@ -25,17 +25,17 @@ class AccountController extends AbstractController{
              return $error_messages;
 
         }
-        if(empty($login_post_data['password'])){
+        if (empty($login_post_data['password'])) {
              $error_messages[] = 'Пароль не может быть пустым!<br> может Забыл ?';
              return $error_messages;
 
         }
         if(empty($error_messages)){
             $password = hash('sha256', $login_post_data['password']);
-            if ($this->model->find_user($login_post_data['login'], $password) === true ){
+            if ($this->model->find_user($login_post_data['login'], $password) === true ) {
                 $this->user_data = $this->model->get_user_data($login_post_data['login'],$password);
                 return [];
-            }else {
+            } else {
                 $error_messages[] = 'Логин или пароль не совпадают! Попробуйте еще раз...';
                 return $error_messages;
             }
@@ -49,6 +49,7 @@ class AccountController extends AbstractController{
 
     public function registerAction(){
         if($this->check_user_coockie() === true){
+            //TODO вынести в RedirectResponse
             header('location: /main');
         }
         $this->error_message = 'register';
@@ -57,6 +58,7 @@ class AccountController extends AbstractController{
         return $this->view->getTemplate($this->page_params);
     }
 
+    //TODO переместить логику в модель
     public function register(array $post_data){
 	    $error_messages = [];
 	    if(empty($post_data['login'])){
@@ -102,7 +104,7 @@ class AccountController extends AbstractController{
 	    return $error_messages;
     }
 
-
+    //TODO в контрллере не должно быть exit; Ответ только возвращется через return
     public function POST_data(){
         $data = $this->request->methodPost();
         if(isset($data)&& !empty($data)){

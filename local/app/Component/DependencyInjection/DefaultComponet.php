@@ -4,7 +4,7 @@ namespace app\Component\DependencyInjection;
 
 
 
-
+//TODO удалить, и вынести в файл конфигурации, который будет загружатся в сервис-контейнер
 class DefaultComponet{
     public $_classes;
 

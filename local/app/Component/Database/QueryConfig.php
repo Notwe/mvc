@@ -20,7 +20,7 @@ class QueryConfig{
         $query = 'SELECT ' . implode(', ', $columns) . ' FROM ' . $table . ' ' . $this->QueryToString($query_Params);
         return $query;
     }
-
+    //TODO форматирование!!!
     public function insertQuery(string $table, array $inser_tparams, array $colums){
         $query =
         'INSERT INTO ' . $table . ' ' . implode(', ', $colums) . ' VALUES ('.
@@ -83,7 +83,15 @@ class QueryConfig{
     }
 
     /**
+     * TODO дублирование кода
+     * "@see Join::prepareQueryJoin()
+     *
      * @param int|double|string|bool|array $param
+     *
+     * @param $param
+     *
+     * @return float|int|string
+     * @throws \Exception
      */
     protected function prepareParamBasedOnType($param)
     {
