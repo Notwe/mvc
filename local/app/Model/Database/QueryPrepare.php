@@ -1,15 +1,14 @@
 <?php
 
- namespace app\Component\Database;
+ namespace app\Model\Database;
 
 
-class QueryConfig{
+class QueryPrepare{
     private $connection;
     private $join;
 
-    function __construct(\mysqli $connection, Join $join){
+    function __construct($connection){
         $this->connection = $connection;
-        $this->join = $join;
     }
 
     public function deleteQuery(string $table, $where){

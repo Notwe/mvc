@@ -1,54 +1,32 @@
 <?php
 
 namespace app\Controller;
-use app\View\View;
-use app\View\Config\PageParams;
+use app\Model\View;
 
-//TODO модель в классе может быть не одна. Не нужно ее динамически подключать (ее нужно передавать аргументом
-// класса
+
 abstract class AbstractController{
-    public $route_path;
+    public $path;
     public $view;
     public $model;
-    public $page_params;
+    public $page_params = [];
     public $user_data = [];
-    public $request;
     public $container;
+    public $response;
+    public $page_title;
 
-    function __construct($route, $Request, $container){
-        $this->container = $container;
-        $this->request = $Request;
-        $this->route_path = $route;
-        //load models
-        $this->model = $this->model($route['controller']);
-        //load views
-        $this->view = new View($route);
-        //params PageJ
-        $this->page_params = new PageParams;
-
+    function __construct($container) {
+        $this->container  = $container;
+        $this->path       = $container->get('path');
+        $this->response   = $container->get('Response');
+        $this->view       = $container->get('View');
+        $this->page_title = $container->get('Title')->get($this->path['action']);
     }
 
-    public function model($name){
-        $path = 'app\Model\\'.ucfirst($name).'Model';
+    public function getModel(string $name){
+        $path = $this->container->get('Model')->$name;
         if(class_exists($path)){
-            return new $path($this->container->get('Database'));
+            return new $path($this->container);
         }
-    }
-
-    //TODO логику вынести в модель. Поправить орфографические ошибки
-    public function check_user_coockie(){
-        $login = trim($this->request->CookieGet('login'));
-        $password = trim($this->request->CookieGet('pass'));
-        if(!empty($login) && !empty($password)){
-            if($this->model->find_user($login, $password) === true){
-                $this->user_data = $this->model->get_user_data($login, $password);
-                $this->page_params->user_data = $this->user_data;
-                return true;
-                }
-            }
-        $this->request->CookieSet('login', '', time() -100500);
-        $this->request->CookieSet('pass', '', time() -100500);
-        return false;
     }
 
 }

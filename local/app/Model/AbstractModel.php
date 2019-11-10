@@ -2,25 +2,13 @@
 
 namespace app\Model;
 
-use app\View\Config\PageParams;
-
 abstract class AbstractModel{
     public $user_data;
-    private $page_params;
-    private $search_user;
-    private $query_config;
-    private $db;
-    public function __construct($database){
-        $this->page_params = new PageParams;
-        $this->db = $database;
+    private $database;
+    public function __construct($container){
+        $this->database = $container->get('Database');
 
     }
-    //Mysql query
-    // //$select = SELECT
-    // public function get_result_query($table, array $query){
-    //     return $this->db->get_query($this->queryConfig->construct_query($table ,$query));
-    //
-    // }
 
     public function num_rows(object $query){
         if($query->num_rows > 0)
@@ -75,6 +63,22 @@ abstract class AbstractModel{
     }
     public function insert( string $table, array $queryParam, array $colum){
         return $this->db->get_query($this->queryConfig->insertQuery($table, $queryParam, $colum));
+    }
+
+    public function check_user_cookie(){
+        echo '123';
+        $login = trim($this->request->CookieGet('login'));
+        $password = trim($this->request->CookieGet('pass'));
+        if(!empty($login) && !empty($password)){
+            if($this->model->find_user($login, $password) === true){
+                $this->user_data = $this->model->get_user_data($login, $password);
+                $this->page_params->user_data = $this->user_data;
+                return true;
+            }
+        }
+        $this->request->CookieSet('login', '', time() -100500);
+        $this->request->CookieSet('pass', '', time() -100500);
+        return false;
     }
 
 }

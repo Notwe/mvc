@@ -1,5 +1,5 @@
 <?php
-namespace app\Component;
+namespace app\Model;
 
 class ErrorHandler{
 
@@ -27,9 +27,9 @@ class ErrorHandler{
     public function error_handling ($error_number, $error_string, $error_file, $error_line){
         $errors = $this->error_type($error_number);
         if(stristr($error_string, 'mysqli') == true) {
-            $log_file = __DIR__ . '/../Log/Errors/ErrorsSQL/'. date("d.m.y") . '.log';
+            $log_file = __DIR__ . '/Log/Errors/ErrorsSQL/'. date("d.m.y") . '.log';
         }else{
-            $log_file = __DIR__ . '/../Log/Errors/ErrorsSite/'. date("d.m.y") . '.log';
+            $log_file = __DIR__ . '/Log/Errors/ErrorsSite/'. date("d.m.y") . '.log';
         }
         $this->log_write($errors,$error_string, $error_file, $error_line,$log_file);
 

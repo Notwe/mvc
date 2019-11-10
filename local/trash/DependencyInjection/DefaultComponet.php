@@ -12,9 +12,9 @@ class DefaultComponet{
         $this->_classes = [
             'DatabaseConfig' => 'app\Component\Database\DatabaseConfig',
             'Connection'     => 'app\Component\Database\Connection',
-            'QueryConfig'    => 'app\Component\Database\QueryConfig',
+            'QueryPrepare'    => 'app\Component\Database\QueryConfig',
             'Database'       => 'app\Component\Database',
-            'Cookie'         => 'app\Component\Request\Cookie',
+            'CookieResponse'         => 'app\Component\Request\Cookie',
             'Get'            => 'app\Component\Request\Get',
             'Post'           => 'app\Component\Request\Post',
             'Server'         => 'app\Component\Request\Server',

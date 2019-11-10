@@ -700,7 +700,7 @@ $.ui.plugin = {
 		// Set default dialog transition - 'none' for no transitions
 		defaultDialogTransition: "pop",
 
-		// Error response message - appears when an Ajax page request fails
+		// Error Response message - appears when an Ajax page request fails
 		pageLoadErrorMessage: "Error Loading Page",
 
 		// For error messages, which theme does the box use?
@@ -14225,7 +14225,7 @@ $.widget( "mobile.filterable", $.mobile.filterable, {
 			this._widget._trigger( "beforefilter", event, data );
 		}
 
-		// Passing back the response enables calling preventDefault()
+		// Passing back the Response enables calling preventDefault()
 		return this._super( type, event, data );
 	},
 

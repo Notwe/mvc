@@ -1,9 +1,11 @@
 <?php
 
-namespace app\View\Config;
+
+namespace app\Model\Config;
+
 
 class PageTitle {
-    public $title;
+    private $title;
 
     function __construct(){
         $this->title = [
@@ -14,14 +16,17 @@ class PageTitle {
             'register' =>
                 ['title' => 'Регистрация'],
             'login'=>
-		        ['title'=> 'Вход'],
+                ['title'=> 'Вход'],
             'main'=>
-    		    ['title'=> 'GOOD'],
+                ['title'=> 'GOOD'],
             'game'=>
-        		 ['title'=> 'PAC-MAN'],
-            ];
+                ['title'=> 'PAC-MAN'],
+        ];
     }
-    public function setTitle(){
-        return $this->title;
+    public function get(string $page){
+        if (array_key_exists($page, $this->title)) {
+            return $this->title[$page]['title'];
+        }
+        return '';
     }
 }

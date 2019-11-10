@@ -1,14 +1,12 @@
 <?php
 
-namespace app\Component;
-use app\Component\Database\QueryConfig;
-use app\Component\Database\Connection;
+namespace app\Model\Database;
 
  class Database{
      private $connection;
      private $query_config;
 
-     public function __construct(\mysqli $connection, QueryConfig $query_config){
+     public function __construct(\mysqli $connection, QueryPrepare $query_config){
          $this->connection = $connection;
          $this->query_config = $query_config;
 

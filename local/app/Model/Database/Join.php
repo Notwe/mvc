@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Component\Database;
+namespace app\Model\Database;
 
 
 class Join{

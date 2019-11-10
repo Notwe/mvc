@@ -10,7 +10,7 @@
 
 	</head>
 	<body class='background'>
-        <?=$page_data;?>
+        <?=$page;?>
 	</body>
 
 </html>
