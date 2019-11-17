@@ -20,12 +20,8 @@
 		<script type="text/javascript" src="/public/scripts/main/game/js/home.js"></script>
 		<script type="text/javascript" src="/public/scripts/main/game/js/sound.js"></script>
 		<script type="text/javascript" src="/public/scripts/main/game/js/sound.js"></script>
+		<script type="text/javascript" src="/public/scripts/main/game.js"></script>
         </head>
-        <!-- <div class='head_menu'>
-        	<form method=POST>
-        		<input class='button_exit' type=submit name=exit value='Выход'>
-        	</form>
-        </div> -->
         <div class='main_left_menu'>
         	<div class="hello_user" onclick='qwer()'>Привет&nbsp;&nbsp;&nbsp;<a href='#'><b><?=$_COOKIE['login'] ?? 'Гость';?></a></b></div>
         	<div class='public_room_list'>

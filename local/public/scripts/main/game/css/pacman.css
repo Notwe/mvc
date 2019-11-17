@@ -104,7 +104,7 @@ span.combo, span.fruits {
 }
 
 #canvas-lifes, #canvas-level-fruits {
-	top: 48%;
+	top: 45%;
 	position: absolute;
 	/* height: 30px;
 	top: 670px;
@@ -242,14 +242,14 @@ h3 {
 	height: 20px;
 }
 #home .sound {
-	bottom: 48%;
+	bottom: 51%;
 
-	left: 29%;
+	left: 27%;
 }
 #panel .sound {
-	bottom: 48%;
+	bottom: 51%;
 
-left: 29%;
+	left: 27%;
 }
 
 .github {

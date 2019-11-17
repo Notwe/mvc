@@ -7,24 +7,23 @@ class QueryPrepare{
     private $connection;
     private $join;
 
-    function __construct($connection){
+    function __construct($connection, Join $join){
         $this->connection = $connection;
+        $this->join = $join;
     }
 
-    public function deleteQuery(string $table, $where){
+    public function delete(string $table, $where){
         return $this->database_connection->query('DELETE FROM ' . $table . ' ' . $this->QueryToString($where));
     }
 
-    public function selectQuery(string $table, array $query_Params = [], array $columns){
+    public function select(string $table, array $query_Params = [], array $columns){
         $query = 'SELECT ' . implode(', ', $columns) . ' FROM ' . $table . ' ' . $this->QueryToString($query_Params);
         return $query;
     }
-    //TODO форматирование!!!
-    public function insertQuery(string $table, array $inser_tparams, array $colums){
+
+    public function insert(string $table, array $inser_tparams, array $colums){
         $query =
-        'INSERT INTO ' . $table . ' ' . implode(', ', $colums) . ' VALUES ('.
-        implode(',', $this->queryParams->getQueryParams($inser_tparams))
-        .')';
+            'INSERT INTO ' . $table . ' ' . implode(', ', $colums) . 'VALUES ('. implode(',', $this->getQueryParams($inser_tparams)) .')';
         return $query;
     }
     public function updateQuery(){
@@ -35,27 +34,19 @@ class QueryPrepare{
 
         $result_string = '';
         if (array_key_exists('JOIN', $query)) {
-            $prepeareJoin = $this->join->prepareJoin($query['JOIN']);
-            foreach ($prepeareJoin as $join_query) {
-                $result_string .= ' ' . $join_query;
-            }
+            $join_query = $this->join->prepareJoin($query['JOIN']);
+            $result_string .= ' ' . $join_query;
             unset($query['JOIN']);
+        }
+        $result = $this->constructQueryString($query);
+        if (!empty($result)) {
+            $result_string .= ' WHERE ' . implode(' AND ', $result);
         }
         if(array_key_exists('LIMIT', $query)){
             //unset($query['LIMIT']);
         }
         if(array_key_exists('ORDER',$query )){
             //unset($query['ORDER']);
-        }
-        // if(array_key_exists('INSERT',$query )){
-        //     $result = $this->constructQueryString($query['INSERT']);
-        //     if (!empty($result)) {
-        //         return implode(' , ', $result);
-        //     }
-        // }
-        $result = $this->constructQueryString($query);
-        if (!empty($result)) {
-            $result_string .= ' WHERE ' . implode(' AND ', $result);
         }
         return $result_string;
     }
@@ -81,19 +72,7 @@ class QueryPrepare{
         return $params;
     }
 
-    /**
-     * TODO дублирование кода
-     * "@see Join::prepareQueryJoin()
-     *
-     * @param int|double|string|bool|array $param
-     *
-     * @param $param
-     *
-     * @return float|int|string
-     * @throws \Exception
-     */
-    protected function prepareParamBasedOnType($param)
-    {
+    protected function prepareParamBasedOnType($param) {
         if (is_double($param)) {
             return (double) $param;
         } elseif (is_numeric($param)) {

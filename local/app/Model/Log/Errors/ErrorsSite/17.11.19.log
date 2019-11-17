@@ -1,0 +1,232 @@
+03:32:39 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\RegisterModel::select() in /var/www/local/app/Model/RegisterModel.php:81
+Stack trace:
+#0 /var/www/local/app/Model/RegisterModel.php(19): app\Model\RegisterModel->check_user_email('12321@123')
+#1 /var/www/local/app/Model/RegisterModel.php(57): app\Model\RegisterModel->checks_fields(Array)
+#2 /var/www/local/app/Controller/AccountController.php(32): app\Model\RegisterModel->register()
+#3 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\AccountController->registerAction()
+#4 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#5 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#6 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#7 {main}
+  thrown /var/www/local/app/Model/RegisterModel.php line 81
+03:32:47 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\RegisterModel::select() in /var/www/local/app/Model/RegisterModel.php:81
+Stack trace:
+#0 /var/www/local/app/Model/RegisterModel.php(19): app\Model\RegisterModel->check_user_email('12321@123')
+#1 /var/www/local/app/Model/RegisterModel.php(57): app\Model\RegisterModel->checks_fields(Array)
+#2 /var/www/local/app/Controller/AccountController.php(32): app\Model\RegisterModel->register()
+#3 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\AccountController->registerAction()
+#4 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#5 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#6 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#7 {main}
+  thrown /var/www/local/app/Model/RegisterModel.php line 81
+03:36:32 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\RegisterModel::insert() in /var/www/local/app/Model/RegisterModel.php:76
+Stack trace:
+#0 /var/www/local/app/Model/RegisterModel.php(44): app\Model\RegisterModel->register_user('1232323', 'f6e0a1e2ac41945...', '12321@123')
+#1 /var/www/local/app/Model/RegisterModel.php(57): app\Model\RegisterModel->checks_fields(Array)
+#2 /var/www/local/app/Controller/AccountController.php(29): app\Model\RegisterModel->register()
+#3 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\AccountController->registerAction()
+#4 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#5 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#6 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#7 {main}
+  thrown /var/www/local/app/Model/RegisterModel.php line 76
+03:37:16 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Controller\MainController::check_user_coockie() in /var/www/local/app/Controller/MainController.php:8
+Stack trace:
+#0 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\MainController->MainAction()
+#1 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#2 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#3 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#4 {main}
+  thrown /var/www/local/app/Controller/MainController.php line 8
+03:40:31 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Controller\MainController::check_user_coockie() in /var/www/local/app/Controller/MainController.php:8
+Stack trace:
+#0 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\MainController->MainAction()
+#1 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#2 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#3 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#4 {main}
+  thrown /var/www/local/app/Controller/MainController.php line 8
+04:22:19 WARNING - Предупреждение file_get_contents(app/Template/main/game.tpl): failed to open stream: Permission denied /var/www/local/app/Model/View.php line 18
+04:47:40 NOTICE - Уведомление Undefined variable: page /var/www/local/app/Template/general.tpl line 13
+04:48:17 NOTICE - Уведомление Undefined variable: page /var/www/local/app/Template/general.tpl line 13
+05:21:11 PARSE - Ошибка syntax error, unexpected 'require' (T_REQUIRE) /var/www/local/app/Model/View.php line 21
+05:21:19 PARSE - Ошибка syntax error, unexpected ';' /var/www/local/app/Model/View.php line 20
+07:01:29 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\Response\Response::NoExistResponse() in /var/www/local/app/Controller/ErrorController.php:15
+Stack trace:
+#0 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\ErrorController->Err404Action()
+#1 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#2 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#3 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#4 {main}
+  thrown /var/www/local/app/Controller/ErrorController.php line 15
+07:02:09 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\Response\Response::NoExistResponse() in /var/www/local/app/Controller/ErrorController.php:15
+Stack trace:
+#0 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\ErrorController->Err404Action()
+#1 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#2 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#3 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#4 {main}
+  thrown /var/www/local/app/Controller/ErrorController.php line 15
+07:03:42 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\View::render() must be of the type array, string given, called in /var/www/local/app/Model/Response/ResponseModel.php on line 56 and defined in /var/www/local/app/Model/View.php:6
+Stack trace:
+#0 /var/www/local/app/Model/Response/ResponseModel.php(56): app\Model\View->render('Errors/404')
+#1 /var/www/local/app/Controller/ErrorController.php(15): app\Model\Response\ResponseModel->NoExistResponse('404')
+#2 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\ErrorController->Err404Action()
+#3 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#4 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#5 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#6 {main}
+  thrown /var/www/local/app/Model/View.php line 6
+07:06:01 NOTICE - Уведомление Undefined variable: template /var/www/local/app/Model/Response/ResponseModel.php line 54
+07:06:01 ERROR - Фатальная ошибка Uncaught TypeError: Argument 1 passed to app\Model\View::render() must be of the type array, null given, called in /var/www/local/app/Model/Response/ResponseModel.php on line 54 and defined in /var/www/local/app/Model/View.php:6
+Stack trace:
+#0 /var/www/local/app/Model/Response/ResponseModel.php(54): app\Model\View->render(NULL)
+#1 /var/www/local/app/Controller/ErrorController.php(15): app\Model\Response\ResponseModel->NoExistResponse(Array)
+#2 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\ErrorController->Err404Action()
+#3 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#4 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#5 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#6 {main}
+  thrown /var/www/local/app/Model/View.php line 6
+07:06:53 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:09 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:10 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:15 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:15 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:23 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:23 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:33 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:33 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:07:37 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:08:35 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:08:37 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:08:37 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:08:37 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:09:28 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:09:28 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:09:28 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:10:06 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:10:06 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:10:06 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:10:55 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:10:56 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:10:59 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:11:05 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:11:05 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:11:05 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:11:05 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:12:14 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:12:18 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:12:18 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:12:42 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:12:47 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:12:48 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:22 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:24 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:29 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:31 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:13:31 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:13:31 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:42 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:48 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:57 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:13:57 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:14:30 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:14:30 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:14:54 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:14:55 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:15:08 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:15:08 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:15:14 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:15:14 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:16:15 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:16:15 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:17:49 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:17:51 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:17:54 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:18:00 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:46:33 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:46:33 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:46:33 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:46:33 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:47:35 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:47:36 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:47:54 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:47:57 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:47:57 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+07:47:57 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+07:47:58 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:48:21 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:48:22 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:48:25 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+07:48:30 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:19:13 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:19:14 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:20:11 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:20:12 ERROR - Фатальная ошибка Uncaught Error: Call to undefined method app\Model\RegisterModel::autorise() in /var/www/local/app/Controller/AccountController.php:25
+Stack trace:
+#0 /var/www/local/app/Controller/AccountController.php(16): app\Controller\AccountController->result_action_account('register')
+#1 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\AccountController->registerAction()
+#2 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#3 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#4 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#5 {main}
+  thrown /var/www/local/app/Controller/AccountController.php line 25
+08:22:27 ERROR - Фатальная ошибка Uncaught ArgumentCountError: Too few arguments to function app\Controller\AccountController::result_action_account(), 1 passed in /var/www/local/app/Controller/AccountController.php on line 16 and exactly 2 expected in /var/www/local/app/Controller/AccountController.php:20
+Stack trace:
+#0 /var/www/local/app/Controller/AccountController.php(16): app\Controller\AccountController->result_action_account('register')
+#1 /var/www/local/app/Model/Container/ServiceBag.php(77): app\Controller\AccountController->registerAction()
+#2 /var/www/local/app/Model/Container/ServiceContainer.php(25): app\Model\Container\ServiceBag::app\Model\Container\{closure}(Object(app\Model\Container\ServiceContainer))
+#3 /var/www/local/app/Core/Dispatcher.php(12): app\Model\Container\ServiceContainer->get('Controller')
+#4 /var/www/local/index.php(10): app\Core\Dispatcher->__construct(Object(app\Model\Container\ServiceContainer))
+#5 {main}
+  thrown /var/www/local/app/Controller/AccountController.php line 20
+08:23:08 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+08:23:08 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+08:23:08 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:23:13 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:23:14 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:24:49 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+08:24:57 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:01:32 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:01:33 NOTICE - Уведомление Undefined variable: error_messages /var/www/local/app/Template/account/register.tpl line 21
+09:01:33 WARNING - Предупреждение Invalid argument supplied for foreach() /var/www/local/app/Template/account/register.tpl line 21
+09:01:33 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:01:38 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:01:40 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:01:41 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:01:43 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:02:34 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:04:49 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:05:16 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:05:17 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:05:21 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:05:23 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:05:27 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:08:37 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:09:37 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:09:37 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:09:37 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:09:52 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:10:08 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:11:35 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:14:59 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:15:05 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:15:49 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:16:09 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:16:26 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:16:44 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:19:34 PARSE - Ошибка syntax error, unexpected ']' /var/www/local/app/Model/Container/ServiceBag.php line 102
+09:19:47 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:19:49 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:20:07 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:20:13 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:59:41 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:59:43 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:59:47 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:59:48 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:59:57 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+09:59:59 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+10:00:31 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9
+10:00:42 NOTICE - Уведомление Undefined variable: title /var/www/local/app/Template/general.tpl line 9

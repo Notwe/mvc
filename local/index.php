@@ -10,5 +10,5 @@ use app\Model\Container\ServiceContainer;
 $dispatcher = new Dispatcher(new ServiceContainer);
 
 //TODO реализовать подобный метод для возврата Response|RedirectResponse|JsonResponse
-$dispatcher->display();
+echo $dispatcher->display();
 

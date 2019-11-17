@@ -1,32 +1,30 @@
 <?php
 
 namespace app\Controller;
-use app\Model\View;
+use app\Model\BaseModel;
 
 
 abstract class AbstractController{
-    public $path;
-    public $view;
-    public $model;
-    public $page_params = [];
-    public $user_data = [];
-    public $container;
-    public $response;
-    public $page_title;
+    protected $page_params = [];
+    protected $user_data = [];
+    protected $container;
+    protected $response;
+    protected $request;
+    protected $model;
+    /**
+     * @var BaseModel $bag_models
+     */
+    protected $bag_models;
+
 
     function __construct($container) {
-        $this->container  = $container;
-        $this->path       = $container->get('path');
-        $this->response   = $container->get('Response');
-        $this->view       = $container->get('View');
-        $this->page_title = $container->get('Title')->get($this->path['action']);
+        $this->container            = $container;
+        $this->request              = $container->get('Request');
+        $this->response             = $container->get('ResponseModel');
+        $this->page_params['title'] = $container->get('Title');
+        $this->bag_models           = $container->get('Model');
     }
 
-    public function getModel(string $name){
-        $path = $this->container->get('Model')->$name;
-        if(class_exists($path)){
-            return new $path($this->container);
-        }
-    }
+
 
 }

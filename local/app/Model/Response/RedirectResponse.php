@@ -6,7 +6,7 @@ namespace app\Model\Response;
 
 class RedirectResponse {
 
-    public static function set($url){
+    public function url($url){
         if (!empty($url)) {
             header('Location:' . $url, true, 302);
             exit;

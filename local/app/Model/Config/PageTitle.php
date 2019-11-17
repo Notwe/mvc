@@ -9,17 +9,17 @@ class PageTitle {
 
     function __construct(){
         $this->title = [
-            'index' =>
+            'indexAction' =>
                 ['title' => 'Главная'],
-            '404'  =>
+            '404Action'  =>
                 ['title' => 'Ошибка'],
-            'register' =>
+            'registerAction' =>
                 ['title' => 'Регистрация'],
-            'login'=>
+            'loginAction'=>
                 ['title'=> 'Вход'],
-            'main'=>
+            'mainAction'=>
                 ['title'=> 'GOOD'],
-            'game'=>
+            'gameAction'=>
                 ['title'=> 'PAC-MAN'],
         ];
     }

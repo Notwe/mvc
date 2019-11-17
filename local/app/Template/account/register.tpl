@@ -16,12 +16,4 @@
 	<input type=password size="30" name=pass placeholder="Пароль"><br><br>
 	<input type=password size="30" name=pass2 placeholder="Подтвердите пароль"><br><br>
 	<input type=submit size="30" name=reg value="Зарегистрироваться">
-	<!--<ul>
-		<?php
-		   foreach($error_messages as $error_message) { ?>
-		<li>Ошибка!<br><?=$error_message;?></li>
-		<?php
-		   }
-		?>
-	</ul>-->
 </form>

@@ -3,44 +3,36 @@
 namespace app\Model\Database;
 
 
-class Join{
+class Join {
     private $connection;
-
-    public function __construct(\mysqli $connection){
+    public function __construct ($connection) {
         $this->connection = $connection;
     }
 
     public function prepareJoin(array $query, $type = 'INNER'){
-        foreach ($query as $key => &$value) {
-            if($key == 'JOIN'){
-                $value = $this->prepareJoin($query['JOIN']);
-            }elseif($key == 'Type'){
-                $type = $query['Type'];
-            }else{
-                $value = $this->prepareParamBasedOnType($value);
+        $join = '';
+        $result_array = [];
+        if (array_key_exists('Type', $query)) {
+            $type = $query['Type'];
+            unset($query['Type']);
+        } else if (array_key_exists('JOIN', $query)){
+            $join = $this->prepareJoin($query['JOIN']);
+            unset($query['JOIN']);
+        }
+        $result_string = $type . '';
+        foreach ($query as $colums => &$value) {
+            if (!is_numeric($colums)) {
+                if (is_array($value)) {
+                    foreach ($value as $key => $param) {
+                        $value =  '"' . $this->connection->escape_string($param) . '"';
+                    }
+                }
+                $result_array[] = $colums . ' = ' . $value;
+            }else {
+                $result_string .= ' JOIN ' . $value;
             }
         }
-        debug($value);
-
-    }
-
-    //TODO убрать дублирование кода
-    private function prepareQueryJoin($param){
-        if (is_double($param)) {
-            return (double) $param;
-        } elseif (is_numeric($param)) {
-            return (int) $param;
-        } elseif (is_bool($param)) {
-            return (int) $param;
-        } elseif (is_null($param)) {
-            return $param;
-        } elseif (is_string($param)) {
-            return $this->connection->escape_string($param);
-        } elseif(is_array($param)) {
-            foreach ($param as $key => $value) {
-                return '"' . $this->connection->escape_string($value) . '"';
-            }
-        }
-        throw new \Exception('Invalid parameter type of value "' . $param . '"');
+        $result_string .= ' ON ' . implode(' AND ', $result_array) . ' ' .$join;
+        return $result_string;
     }
 }

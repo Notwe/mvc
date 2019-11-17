@@ -15,7 +15,7 @@ abstract class AbstractParameterBag {
         if ($defult === true) {
             return $_POST;
         }
-        if(array_key_exists($name, $this->params)) {
+        if(array_key_exists($name, $this->parameters)) {
             return $this->parameters[$name];
         }
 

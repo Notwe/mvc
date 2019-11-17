@@ -4,7 +4,7 @@ namespace app\Controller;
 class IndexController extends AbstractController {
 
     public function IndexAction () {
-        $this->getModel('Index');
-        $this->response->create($this->view::render($this->path,['title'=> $this->page_title]));
+        $this->model = $this->bag_models->Index;
+        return $this->response->response(['index'=>'index'], $this->page_params);
     }
 }

@@ -71,9 +71,20 @@ class Request{
         return $this->url;
     }
 
-    public function getQueryString ()
-    {
+    public function getQueryString () {
         return $this->query_string;
+    }
+
+    public function setCookie(array $params) {
+        foreach ($params as $name => $value) {
+            $this->cookie::setCookies($name, $value);
+        }
+        return true;
+    }
+
+    public function clearCookie(string $name) {
+        $this->cookie::removeCookies($name);
+        return true;
     }
 
     protected function initServer(Server $server) {

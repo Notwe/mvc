@@ -1,22 +1,27 @@
 <?php
 namespace app\Controller;
-use app\Controller\AbstractController;
 
 class MainController extends AbstractController{
 
     function MainAction(){
-        if($this->check_user_coockie() == false){
-            header('location: /');
+        $this->model = $this->bag_models->Main;
+
+        if($this->model->check_user_cookie() === false){
+            $this->response->redirect('/');
         }
-        return $this->view->getTemplate($this->page_params);
+
+        return $this->response->response(['main' => 'main'], $this->page_params);
 
     }
 
     function GameAction(){
-        if($this->check_user_coockie() == false){
-            header('location: /');
+        $this->model = $this->bag_models->Main;
+
+        if($this->model->check_user_cookie() === false){
+            $this->response->redirect('/');
         }
-        return $this->view->getTemplate($this->page_params);
+
+        return $this->response->response(['main' => 'game'], $this->page_params);
 
     }
 

@@ -1,8 +1,4 @@
 <?php
-namespace app\Model\Config;
-
-class Routes{
-  public static function get() {
       return [
           'main' => [
               'controller' => 'main',
@@ -31,6 +27,8 @@ class Routes{
               'controller' => 'user',
               'action' => 'user',
           ],
+          '404' => [
+              'controller' => '404',
+              'action' => 'error404',
+          ],
       ];
-  }
-}
