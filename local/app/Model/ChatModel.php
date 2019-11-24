@@ -4,16 +4,17 @@
 namespace app\Model;
 
 
-class ChatModel extends AbstractModel {
+class ChatModel extends AbstractUserModel {
     /**
      * @return array|bool|void
      *Еще в проэкте , работает криво , либо не работает...
      * This function to identify the parameters of POST request
      */
-    public function chat_validation () {
+    public function chatValidation () {
         $request = $this->request->getPost();
 
-        if ($this->check_user_cookie() ===false) {
+        if ($this->userCookieVerification() ===false) {
+            //TODO временно для теста, удалится
             return false;
         }
         if (isset($request['get_room_messages'])) {

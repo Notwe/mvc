@@ -20,13 +20,4 @@ class Response extends AbstractResponse {
 
         return $this->content;
     }
-
-    public function create($content, $status , $headers) {
-        $this->setContent($content);
-        $this->setStatusCode($status);
-        $this->headers = $headers;
-        return $this;
-    }
-
-
 }

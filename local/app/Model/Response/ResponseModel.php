@@ -48,7 +48,8 @@ class ResponseModel {
     }
 
     public function redirect ($url) {
-        $this->redirectResponse->url($url);
+        $this->redirectResponse->setUrl($url);
+        return $this->redirectResponse;
     }
 
     public function manual ($content = '', $status = 200, $headers = '') {
@@ -56,17 +57,7 @@ class ResponseModel {
         return $this->response;
     }
 
-    public function NotFoundResponse ($status_code = 404) {
-        $this->notFound->setStatusCode($status_code);
-        return $this->notFound;
-    }
-
-    public function NoAccessResponse ($status_code = 403) {
-        $this->noAccess->setStatusCode($status_code);
-        return $this->noAccess;
-    }
-
-///TESTTTTTTTT ONLY TEST
+///TODO TESTTTTTTTT ONLY TEST вызов кастомной страницы
     public function test_errors_response (int $code) {
         $this->response->setContent($this->view->render(['Errors' => $code], ['title' => $code]));
         $this->response->setStatusCode($code);

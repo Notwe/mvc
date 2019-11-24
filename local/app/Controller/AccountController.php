@@ -7,20 +7,19 @@ class AccountController extends AbstractController {
     public function loginAction(){
         $this->model      = $this->container->get('AuthorizeModel');
         $this->page_title = 'Авторизация';
-
-        return $this->result_action_account('login', 'autorise');
+        return $this->resultActionAccount('login', 'autorise');
     }
 
     public function registerAction() {
         $this->model      = $this->container->get('RegisterModel');
         $this->page_title = 'Регистрация';
 
-        return $this->result_action_account('register', 'register');
+        return $this->resultActionAccount('register', 'register');
 
     }
 
-    private function result_action_account(string $action, $method) {
-        if ($this->model->check_user_cookie() === true) {
+    private function resultActionAccount(string $action, $method) {
+        if ($this->model->userCookieVerification() === true) {
             $this->response->redirect('/main');
         }
 

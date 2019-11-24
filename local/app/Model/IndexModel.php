@@ -3,6 +3,6 @@
 namespace app\Model;
 
 
-class IndexModel extends AbstractModel {
+class IndexModel extends AbstractUserModel {
 
 }

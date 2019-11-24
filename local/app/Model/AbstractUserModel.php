@@ -5,7 +5,7 @@ namespace app\Model;
 use app\Model\Database\Database;
 use app\Model\Request\Request;
 
-abstract class AbstractModel {
+abstract class AbstractUserModel {
     /**
      * This all user params
      * User info                 $user_data
@@ -37,20 +37,20 @@ abstract class AbstractModel {
 
     }
 
-    public function get_user_data(string $name, string $password){
+    public function getUserData(string $name, string $password){
         $query  = ['name'=>[$name], 'password'=>[$password]];
         $colums = ['name, password, user_email'];
 
         $this->user_data = $this->database->fetch_assoc($this->database->select('user', $query, $colums));
 
-        $colums_Join = ['room.name_room, permission_room.room_id'];
-        $query_Join  =
+        $colums_join = ['room.name_room, permission_room.room_id'];
+        $query_join  =
             [
             'JOIN'=>['room', 'permission_room.room_id'=>'room.id',
             'JOIN'=>['user', 'permission_room.user_id ' => 'user.id', 'Type' => 'LEFT']],
             'name'=>[$name], 'password'=>[$password]
             ];
-        $user_room    = $this->database->select('permission_room', $query_Join, $colums_Join);
+        $user_room    = $this->database->select('permission_room', $query_join, $colums_join);
 
         while($result = $this->database->fetch_assoc($user_room)){
              $this->user_rooms[] = $result;
@@ -60,7 +60,7 @@ abstract class AbstractModel {
         return true;
     }
 
-    public function find_user(string $name, string $password = '', string $email = ''){
+    public function findUser(string $name, string $password = '', string $email = ''){
         if (!empty($password)) {
             $query = ['name' => [$name] , 'password' => [$password]];
         } else {
@@ -74,13 +74,13 @@ abstract class AbstractModel {
         return false;
     }
 
-    public function check_user_cookie(){
+    public function userCookieVerification(){
         $login    = trim($this->request->getCookie('login'));
         $password = trim($this->request->getCookie('pass'));
 
         if(!empty($login) && !empty($password)) {
-            if($this->find_user($login, $password) === true){
-                $this->get_user_data($login, $password);
+            if($this->findUser($login, $password) === true){
+                $this->getUserData($login, $password);
                 return true;
             }
         }

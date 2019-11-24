@@ -82,8 +82,8 @@ abstract class AbstractResponse {
 
     public function sendHeaders() {
         if (!empty($this->headers)) {
-            foreach ($this->headers as $name => $values) {
-                header($name . ': ' . $values);
+            foreach ($this->headers as $name => $value) {
+                header($name . ': ' . $value);
             }
         }
         header('HTTP/' . $this->version . ' ' . $this->status_code . ' ' . $this->status_text, true, $this->status_code);
@@ -135,7 +135,5 @@ abstract class AbstractResponse {
         $this->status_text = $text;
         return $this;
     }
-
-    public function prepearHeaders() {}
     
 }

@@ -29,7 +29,7 @@ class Router {
                 return $this->boot($this->route_param);
             }
         }
-        return $this->error_controller(404);
+        return $this->boot('Error', 'Error' . 404, true);
     }
 
     public function boot($param, $action = '', $default = false) {
@@ -51,12 +51,8 @@ class Router {
                 return  $this->error_controller(404);
             }
         } else {
-            return $this->error_controller(403);
+            return $this->boot('Error', 'Error' . 404, true);
         }
-    }
-
-    public function error_controller (int $num = 404) {
-        return $this->boot('Error', 'Error' . $num, true);
     }
 
 }

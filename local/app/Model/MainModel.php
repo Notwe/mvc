@@ -4,6 +4,6 @@
 namespace app\Model;
 
 
-class MainModel extends AbstractModel {
+class MainModel extends AbstractUserModel {
 
 }

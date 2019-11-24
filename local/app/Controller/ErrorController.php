@@ -12,10 +12,10 @@ class ErrorController {
     }
 
     public function Error404Action() {
-        return $this->container->get('ResponseModel')->NotFoundResponse(404);
+        return $this->container->get('NotFoundResponse');
     }
 
     public function Error403Action() {
-        return $this->container->get('ResponseModel')->NoAccessResponse(403);
+        return $this->container->get('NoAccessResponse');
     }
 }

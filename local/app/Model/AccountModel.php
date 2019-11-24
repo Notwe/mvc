@@ -4,6 +4,6 @@
 namespace app\Model;
 
 
-class AccountModel extends AbstractModel {
+class AccountModel extends AbstractUserModel {
 
 }

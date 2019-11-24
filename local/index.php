@@ -7,7 +7,7 @@ require 'app/Core/debug.php';
 /**
  * Autoloader
  */
-require 'app/vendor/Autoloader.php';
+require 'vendor/Autoloader.php';
 /**
  *  Errors Handler
  */
