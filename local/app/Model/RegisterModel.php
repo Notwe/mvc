@@ -51,7 +51,7 @@ class RegisterModel extends AbstractModel {
     }
 
     public function register() {
-        $data = $this->container->get('Request')->getPost()->get('', true);
+        $data = $this->container->get('Request')->getPost();
         if (isset($data) && !empty($data)) {
             $error_message = $this->checks_fields(array_map('trim', $data));
             if (empty($error_message)) {
