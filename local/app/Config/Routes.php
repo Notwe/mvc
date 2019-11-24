@@ -1,6 +1,10 @@
 <?php
-      return [
-          'main' => [
+/**
+ * Routes Page
+ */
+return
+[ 'Routes' =>
+    [    'main' => [
               'controller' => 'main',
               'action' => 'main',
           ],
@@ -31,4 +35,5 @@
               'controller' => '404',
               'action' => 'error404',
           ],
-      ];
+    ],
+];

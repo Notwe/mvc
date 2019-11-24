@@ -4,7 +4,7 @@
 namespace app\Model;
 
 
-class AuthoriseModel extends AbstractModel {
+class AuthorizeModel extends AbstractModel {
 
 
     public function checks_fields(array $login_post_data){
@@ -22,7 +22,7 @@ class AuthoriseModel extends AbstractModel {
         if(empty($error_messages)){
             $password = hash('sha256', $login_post_data['password']);
             if ($this->find_user($login_post_data['login'], $password) === true ) {
-                $this->user_data = $this->get_user_data($login_post_data['login'],$password);
+                $this->get_user_data($login_post_data['login'],$password);
                 return [];
             } else {
                 $error_messages[] = 'Логин или пароль не совпадают! Попробуйте еще раз...';
@@ -33,7 +33,7 @@ class AuthoriseModel extends AbstractModel {
     }
 
     public function autorise(){
-        $data = $this->container->get('Request')->getPost()->get('', true);
+        $data = $this->container->get('Request')->getPost();
         if(isset($data)&& !empty($data)){
             $error_message = $this->checks_fields(array_map('trim', $data));
             if(empty($error_message)) {

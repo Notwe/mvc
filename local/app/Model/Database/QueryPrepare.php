@@ -31,24 +31,36 @@ class QueryPrepare{
     }
 
     protected function QueryToString(array $query){
-
+        $limit = '';
+        $order = '';
         $result_string = '';
+
         if (array_key_exists('JOIN', $query)) {
             $join_query = $this->join->prepareJoin($query['JOIN']);
             $result_string .= ' ' . $join_query;
             unset($query['JOIN']);
         }
+
+        if(array_key_exists('LIMIT', $query)){
+            $limit = $this->prepareLimit($query['LIMIT']);
+            unset($query['LIMIT']);
+        }
+
+        if(array_key_exists('ORDER',$query )) {
+            $order = $this->prepareOrderBy($query['ORDER']);
+            unset($query['ORDER']);
+        }
+
+        if(array_key_exists('WHERE', $query)) {
+            $where = $this->prepareWhere($query['WHERE']);
+            return $result_string . $where .$order . $limit;
+        }
+
         $result = $this->constructQueryString($query);
         if (!empty($result)) {
-            $result_string .= ' WHERE ' . implode(' AND ', $result);
+            $result_string .= ' WHERE ' . implode(' AND ', $result) . ' ';
         }
-        if(array_key_exists('LIMIT', $query)){
-            //unset($query['LIMIT']);
-        }
-        if(array_key_exists('ORDER',$query )){
-            //unset($query['ORDER']);
-        }
-        return $result_string;
+        return $result_string . $order . $limit;
     }
     //
     //
@@ -89,6 +101,25 @@ class QueryPrepare{
             }
         }
         throw new \Exception('Invalid parameter type of value "' . $param . '"');
+    }
+
+    protected function prepareLimit(array $limit) {
+        foreach ($limit as $type => $params) {
+            $result = $type . 'LIMIT' . $this->prepareParamBasedOnType($params);
+        }
+        return $result;
+    }
+    protected function prepareOrderBy (array $order) {
+        foreach ($order as $type => $params) {
+            $result = $type . $this->prepareParamBasedOnType($params) . ' ';
+        }
+        return $result;
+    }
+    protected  function prepareWhere (array $where) {
+        foreach ($where as $key => $value) {
+            $result = $key . $this->prepareParamBasedOnType($value) . ' ';
+        }
+        return $result;
     }
 
 }

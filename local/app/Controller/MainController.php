@@ -1,27 +1,41 @@
 <?php
 namespace app\Controller;
 
-class MainController extends AbstractController{
+class MainController extends AbstractController {
 
     function MainAction(){
-        $this->model = $this->bag_models->Main;
-
+        $this->model      = $this->container->get('MainModel');
+        $this->page_title = 'Чат';
         if($this->model->check_user_cookie() === false){
             $this->response->redirect('/');
         }
-
-        return $this->response->response(['main' => 'main'], $this->page_params);
+        /**
+         * TODO временно тест в процессе
+         */
+        if($this->container->get('ChatModel')->chat_validation() !== false) {
+            return $this->response->json($this->container->get('ChatModel')->chat_validation());
+        }
+        /**
+         * TODO временно тест end
+         */
+        return $this->response->response (
+            ['main' => 'main'],
+            ['title' => $this->page_title]
+        );
 
     }
 
     function GameAction(){
-        $this->model = $this->bag_models->Main;
-
+        $this->model = $this->container->get('MainModel');
+        $this->page_title = 'Игра';
         if($this->model->check_user_cookie() === false){
             $this->response->redirect('/');
         }
 
-        return $this->response->response(['main' => 'game'], $this->page_params);
+        return $this->response->response(
+            ['main' => 'game'],
+            ['title' => $this->page_title]
+        );
 
     }
 

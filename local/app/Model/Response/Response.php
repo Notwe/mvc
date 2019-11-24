@@ -12,18 +12,13 @@ class Response extends AbstractResponse {
         $this->version = $version;
     }
     public function __toString() {
-        $this->sendResponseHeader();
+        $this->sendHeaders();
 
         if(!is_null($this->content) && is_string($this->content)) {
             return $this->content;
         }
 
         return $this->content;
-    }
-
-    public function sendResponseHeader() {
-
-        $this->sendHeaders();
     }
 
     public function create($content, $status , $headers) {

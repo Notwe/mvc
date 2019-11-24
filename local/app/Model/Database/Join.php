@@ -9,6 +9,12 @@ class Join {
         $this->connection = $connection;
     }
 
+    /**
+     * TODO функция временная , сильно не пинать (работает)
+     * @param array $query
+     * @param string $type
+     * @return string
+     */
     public function prepareJoin(array $query, $type = 'INNER'){
         $join = '';
         $result_array = [];
@@ -28,11 +34,18 @@ class Join {
                     }
                 }
                 $result_array[] = $colums . ' = ' . $value;
-            }else {
+            } else {
                 $result_string .= ' JOIN ' . $value;
             }
         }
         $result_string .= ' ON ' . implode(' AND ', $result_array) . ' ' .$join;
         return $result_string;
     }
+
+
+    private function prepareParam($query) {
+
+    }
+
+
 }

@@ -83,7 +83,6 @@ abstract class AbstractResponse {
     public function sendHeaders() {
         if (!empty($this->headers)) {
             foreach ($this->headers as $name => $values) {
-
                 header($name . ': ' . $values);
             }
         }
@@ -114,7 +113,7 @@ abstract class AbstractResponse {
 
 
 
-    public function setStatusCode(int $status_code = 200, $text = null) {
+    public function setStatusCode($status_code = 200, $text = null) {
         $this->status_code = $status_code;
 
         if ($this->status_code < 100 || $this->status_code >= 600) {
@@ -122,17 +121,21 @@ abstract class AbstractResponse {
         }
 
         if (null === $text) {
-            $this->status_text = isset(self::$statusTexts[$status_code]) ? self::$statusTexts[$status_code] : 'unknown status';
+             $this->status_text = isset(self::$statusTexts[$status_code]) ? self::$statusTexts[$status_code] : 'unknown status';
+             return $this;
 
         }
 
         if (false === $text) {
             $this->status_text = '';
+            return $this;
 
         }
 
         $this->status_text = $text;
+        return $this;
     }
 
+    public function prepearHeaders() {}
     
 }

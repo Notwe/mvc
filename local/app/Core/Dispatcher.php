@@ -2,8 +2,16 @@
 
 namespace app\Core;
 
+use app\Model\Container\ServiceContainer;
+
 class Dispatcher{
+    /**
+     * current user page controller start
+     */
     private $run;
+    /**
+     * @var ServiceContainer $container
+     */
     private $container;
 
 

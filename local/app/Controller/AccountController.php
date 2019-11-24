@@ -2,16 +2,18 @@
 namespace app\Controller;
 
 
-class AccountController extends AbstractController{
+class AccountController extends AbstractController {
 
     public function loginAction(){
-        $this->model = $this->bag_models->Authorise;
+        $this->model      = $this->container->get('AuthorizeModel');
+        $this->page_title = 'Авторизация';
 
         return $this->result_action_account('login', 'autorise');
     }
 
-    public function registerAction(){
-        $this->model = $this->bag_models->Register;
+    public function registerAction() {
+        $this->model      = $this->container->get('RegisterModel');
+        $this->page_title = 'Регистрация';
 
         return $this->result_action_account('register', 'register');
 
@@ -26,7 +28,10 @@ class AccountController extends AbstractController{
             return $this->response->json($message);
         }
 
-        return $this->response->response(['account' => $action], $this->page_params);
+        return $this->response->response (
+            ['account' => $action],
+            ['title' => $this->page_title]
+        );
     }
 
 }

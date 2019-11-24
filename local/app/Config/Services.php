@@ -1,18 +1,5 @@
 <?php
-
-
-namespace app\Model\Container;
-
-use app\Core\Router;
-use app\Model\Database\Join;
-use app\Model\Database\QueryPrepare;
-
-class ServiceBag{
-
-
-
-    public static function preparedConfigServise(){
-        return [
+     return   [
             //Request load;
             'Cookie'  => new \app\Model\Request\Cookie($_COOKIE),
             'Server'  =>  new \app\Model\Request\Server($_SERVER),
@@ -29,6 +16,8 @@ class ServiceBag{
             },
             //
             //Response load;
+            'NoAccessResponse' => new \app\Model\Response\NoAccessResponse,
+            'NotFoundResponse' => new \app\Model\Response\NotFoundResponse,
             'Response'         => new \app\Model\Response\Response,
             'View'             => new \app\Model\View,
             'JsonResponse'     => new \app\Model\Response\JsonResponse,
@@ -39,7 +28,10 @@ class ServiceBag{
                     $container->get('JsonResponse'),
                     $container->get('Response'),
                     $container->get('RedirectResponse'),
-                    $container->get('View')
+                    $container->get('View'),
+                    $container->get('NoAccessResponse'),
+                    $container->get('NotFoundResponse')
+
                 );
             },
             //
@@ -47,10 +39,10 @@ class ServiceBag{
             //Database  load;
             'Jion' => function (\app\Model\Container\ServiceContainer $container) {
                 return new \app\Model\Database\Join($container->get('connection_database'));
-                },
+            },
             'connection_database' => \app\Model\Database\Connection::connect(),
             'QueryPrepare'        => function (\app\Model\Container\ServiceContainer $container) {
-                return new QueryPrepare
+                return new \app\Model\Database\QueryPrepare
                 (
                     $container->get('connection_database'),
                     $container->get('Jion')
@@ -65,40 +57,34 @@ class ServiceBag{
             },
             //
             //Controller and Route params load;
-
-            'Routes'     => require __DIR__ . '/../Config/Routes.php',
             'Router'     => function (\app\Model\Container\ServiceContainer $container) {
-                return new Router($container->get('Routes'), $container->get('Request')->getURL());
+                return new app\Core\Router($container->get('Routes'), $container->get('Request')->getURL());
             },
             'Controller' => function (\app\Model\Container\ServiceContainer $container) {
                 $controller =  $container->get('Router')->getController();
                 $start      = new $controller['controller']($container);
-                $action = $controller['action'];
+                $action     = $controller['action'];
                 return $start->$action();
             },
-            'Title'      => function (\app\Model\Container\ServiceContainer $container) {
-                $title  = new \app\Model\Config\PageTitle;
-                $params = $container->get('Router')->getController();
-                return $title->get($params['action']);
-            },
             //
-            //Any Base Model load
-            'Model' => function (\app\Model\Container\ServiceContainer $container) {
-               return new \app\Model\BaseModel($container);
+            //Any Model load
+            'AccountModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\AccountModel($container);
             },
-//            'Account' => function (\app\Model\Container\ServiceContainer $container) {
-//                return new \app\Model\AccountModel($container);
-//            },
-//            'Authorise' => function (\app\Model\Container\ServiceContainer $container) {
-//                return new \app\Model\AuthoriseModel($container);
-//            },
-//            'Register' => function (\app\Model\Container\ServiceContainer $container) {
-//                return new \app\Model\RegisterModel($container);
-//            },
-//            'Main' => function (\app\Model\Container\ServiceContainer $container) {
-//                return new \app\Model\MainModel($container);
-//            },
+            'AuthorizeModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\AuthorizeModel($container);
+            },
+            'RegisterModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\RegisterModel($container);
+            },
+            'MainModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\MainModel($container);
+            },
+            'IndexModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\IndexModel($container);
+            },
+            'ChatModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\ChatModel($container);
+            },
             //
         ];
-    }
-}

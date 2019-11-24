@@ -45,11 +45,9 @@ class Request{
         if ($key !== null) {
             if ($this->post->get($key) !== false) {
                 return $this->post->get($key);
-            } else {
-                return false;
             }
         }
-        return $this->post;
+        return $this->post->get('', true);
     }
 
     public function getGet(string $key = null) {

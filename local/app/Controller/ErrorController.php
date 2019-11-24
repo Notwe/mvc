@@ -11,11 +11,11 @@ class ErrorController {
         $this->container= $container;
     }
 
-    public function Err404Action() {
-        return $this->container->get('ResponseModel')->NoExistResponse(['Errors' => '404']);
+    public function Error404Action() {
+        return $this->container->get('ResponseModel')->NotFoundResponse(404);
     }
 
-    public function Err403Action() {
-        return $this->container->get('ResponseModel')->NoExistResponse(['Errors' => '403'], 403);
+    public function Error403Action() {
+        return $this->container->get('ResponseModel')->NoAccessResponse(403);
     }
 }

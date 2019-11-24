@@ -56,13 +56,12 @@ $(function() {
 });
 
 //room list
-$(function room_list() {
+$(document).ready(function() {
 	$.ajax({
-            url: '/chat/function/page/ajax/room.php',
+            url: '/main',
             type: 'POST',
-			data: {'roomlist':''},
+			data: {'room_list':''},
             success: function (data) {
-                data = jQuery.parseJSON(data);
 			    for (var i = 0; i < data.length; i++){
 					$(".public_room_list").append(
 					"<div class='room_list'><a href='#" + data[i].name_room + "' onclick='return confirmRoom(&quot;" + data[i].name_room + "&quot;,&quot; " + data[i].room_id + "&quot;)';>" + data[i].name_room + "</a></div>");

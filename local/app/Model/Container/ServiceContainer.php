@@ -2,14 +2,14 @@
 
 namespace app\Model\Container;
 
-class ServiceContainer extends ServiceBag
+class ServiceContainer
 {
     protected $services = [];
 
     protected $resolved_services = [];
 
-    public function  __construct (){
-        $this->setListOfServices($this->preparedConfigServise());
+    public function  __construct ($params){
+        $this->service_init($params);
     }
 
     public function get(string $name) {
@@ -34,9 +34,9 @@ class ServiceContainer extends ServiceBag
         $this->services[$name] = $service;
     }
 
-    public function setListOfServices(array $services) {
-        foreach ($services as $name => $service) {
-            $this->set($name, $service);
+    public function service_init(array $services) {
+        foreach ($services as $path_service) {
+            $this->services = array_merge($this->services, require $path_service);
         }
     }
 }
