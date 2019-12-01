@@ -1,5 +1,8 @@
+<head>
+	<script type="text/javascript" src="/public/scripts/main/chat.js"></script>
+</head>
 <div class='main_left_menu'>
-	<div class="hello_user" >Привет&nbsp;&nbsp;&nbsp;<a href='#'><b><?=$user_data['name'] ?? 'Гость';?></a></b></div>
+	<div class="hello_user" >Привет&nbsp;&nbsp;&nbsp;<a href='#'><b><?=$user_name ?? 'Гость';?></a></b></div>
 	<div class='public_room_list'> Тут общие комнаты
 	</div>
 	<div class='private_room_list'> тут Приват комнаты доступные юзеру

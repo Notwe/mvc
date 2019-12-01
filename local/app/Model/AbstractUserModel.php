@@ -4,101 +4,73 @@ namespace app\Model;
 
 use app\Model\Database\Database;
 use app\Model\Request\Request;
+use app\Model\Response\ResponseModel;
 
 abstract class AbstractUserModel {
-    /**
-     * This all user params
-     * User info                 $user_data
-     * Allowed Chats for user    $user_rooms
-     * User privilege            $user_privilege
-     */
-    public $user_rooms = [];
-    protected $user_data = [];
-    protected $user_privilege = [];
     /**
      * @var Database $database
      */
     protected $database;
     /**
-     * @var ServiceContainer $container
-     */
-    protected $container;
-    /**
      * @var Request $request
      */
     protected $request;
+    /**
+     * @var ResponseModel $response
+     */
+    protected $response;
+    /**
+     * @var AccountModel $account
+     */
+    protected $account;
 
 
-    public function __construct($container){
-        $this->container = $container;
-        $this->request   = $this->container->get('Request');
-        $this->database  = $this->container->get('Database');
-
+    public function __construct
+        (
+            Request       $request,
+            ResponseModel $response,
+            Database      $database,
+            AccountModel  $account
+        ){
+        $this->request   = $request;
+        $this->database  = $database;
+        $this->response  = $response;
+        $this->account   = $account;
 
     }
 
-    public function getUserData(string $name, string $password){
-        $query  = ['name'=>[$name], 'password'=>[$password]];
-        $colums = ['name, password, user_email'];
-
-        $this->user_data = $this->database->fetch_assoc($this->database->select('user', $query, $colums));
-
-        $colums_join = ['room.name_room, permission_room.room_id'];
-        $query_join  =
-            [
-            'JOIN'=>['room', 'permission_room.room_id'=>'room.id',
-            'JOIN'=>['user', 'permission_room.user_id ' => 'user.id', 'Type' => 'LEFT']],
-            'name'=>[$name], 'password'=>[$password]
-            ];
-        $user_room    = $this->database->select('permission_room', $query_join, $colums_join);
-
-        while($result = $this->database->fetch_assoc($user_room)){
-             $this->user_rooms[] = $result;
-
+    /**
+     * @param string $param
+     * if $param , then return string  user_data[$param]
+     * else return array all user_data
+     * @return array|string
+     */
+    public function getUserData(string $param = ''){
+        if (!empty($param)) {
+            return $this->account->user_data[$param];
         }
-        $this->setUserPrivileges($name);
-        return true;
+        return $this->account->user_data;
     }
 
-    public function findUser(string $name, string $password = '', string $email = ''){
-        if (!empty($password)) {
-            $query = ['name' => [$name] , 'password' => [$password]];
-        } else {
-            $query = ['name' => [$name]];
-        }
-        $result = $this->database->select('user', $query);
-
-        if($this->database->num_rows($result) >= 1){
-            return true;
-        }
-        return false;
-    }
-
-    public function userCookieVerification(){
-        $login    = trim($this->request->getCookie('login'));
-        $password = trim($this->request->getCookie('pass'));
-
-        if(!empty($login) && !empty($password)) {
-            if($this->findUser($login, $password) === true){
-                $this->getUserData($login, $password);
-                return true;
+    public function getUserRooms($default = false) {
+        if ($default === false) {
+            $hash_user_room = $this->account->user_rooms;
+            foreach ($hash_user_room as &$params){
+                $params['room_id'] = hash('crc32', $params['room_id']);
             }
+            return $hash_user_room;
         }
-        $this->request->clearCookie('login');
-        $this->request->clearCookie('pass');
-        return false;
+        return $this->account->user_rooms;
     }
 
-    public function setUserPrivileges (string $name) {
-        if (!empty($name)) {
-            $join = ['JOIN' => ['privilege', 'privilege.id' => 'user.rol_id'],'user.name' => [$name]];
-            $this->user_privilege = $this->database->fetch_array(
-                $this->database->select('user', $join, ['rol_id, privilege.name'])
-            );
-            return true;
-        } else {
-            return false;
-        }
+    public function getUserPermission() {
+        return $this->account->user_privilege;
     }
+
+    public function findUser(string $name, string $password = '', string $email = '') {
+        return $this->account->findUser($name, $password);
+    }
+
+
 
 }

@@ -12,10 +12,10 @@
 </div>
 <div class='autorise_box'>
 	<a href="/"></a>
-	<form action="/account/login" method="POST" class='user_login'>
+	<form action="authorize" method="POST" class='user_login'>
 		<input type=text name=login placeholder='Имя'><br>
 		<input type=password name=password placeholder='Пароль'>
-		<input type=submit id='user_login' name=enter value='Войти'>
+		<input type=submit id='user_login' name=autorize value='Войти'>
 		<ul id='error_message'>
 
 		</ul>

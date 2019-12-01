@@ -9,7 +9,7 @@ class Router {
 
     function __construct($routes, $url) {
         $page = $routes;
-        $this->url= $url;
+        $this->url= parse_url($url, PHP_URL_PATH);
         foreach ($page as $key => $value) {
             $this->add($key, $value);
         }
@@ -25,7 +25,6 @@ class Router {
         foreach ($this->routes as $route => $params) {
             if (preg_match($route, $url, $matches)) {
                 $this->route_param = $params;
-
                 return $this->boot($this->route_param);
             }
         }
@@ -48,7 +47,7 @@ class Router {
                 $controller['action']     = $action;
                 return $controller;
             } else {
-                return  $this->error_controller(404);
+                return $this->boot('Error', 'Error' . 404, true);
             }
         } else {
             return $this->boot('Error', 'Error' . 404, true);

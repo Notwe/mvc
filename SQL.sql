@@ -28,22 +28,22 @@ CREATE TABLE IF NOT EXISTS `messages` (
   KEY `Индекс 3` (`room_id`),
   CONSTRAINT `FK_messages_room` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`),
   CONSTRAINT `FK_messages_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=578 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=670 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы local.lc.messages: ~9 rows (приблизительно)
+-- Дамп данных таблицы local.lc.messages: ~16 rows (приблизительно)
+DELETE FROM `messages`;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
 INSERT INTO `messages` (`id`, `user_id`, `room_id`, `message`, `add_time`) VALUES
 	(567, 24, 1, 'ты дно я знал это', '2019-09-04 22:04:42'),
-	(568, 24, 1, '35464\r\n', '2019-09-04 23:38:00'),
-	(569, 24, 1, '3213', '2019-09-05 00:46:42'),
-	(570, 24, 1, '321321', '2019-09-05 00:56:45'),
-	(571, 24, 1, '09780890', '2019-09-05 00:56:55'),
-	(572, 24, 1, '31231', '2019-09-05 00:57:08'),
-	(573, 24, 1, '[f[f', '2019-09-05 01:44:03'),
-	(574, 1, 7, 'sasay', '2019-09-07 13:40:05'),
-	(575, 24, 7, 'бан сука', '2019-09-07 13:40:29'),
-	(576, 24, 1, 'test', '2019-10-14 05:07:19'),
-	(577, 24, 1, '12312', '2019-10-14 05:20:44');
+	(660, 24, 1, 'петя', '2019-12-01 02:03:15'),
+	(662, 24, 5, 'ничего важного', '2019-12-01 10:38:53'),
+	(663, 24, 1, 'ыф', '2019-12-01 11:03:35'),
+	(664, 24, 3, 'фыфы', '2019-12-01 11:04:17'),
+	(665, 24, 1, 'ыфы', '2019-12-01 11:04:23'),
+	(666, 24, 1, 'йц', '2019-12-01 11:04:28'),
+	(667, 24, 6, 'Политика', '2019-12-01 11:04:38'),
+	(668, 24, 2, 'измененное сообщение', '2019-12-01 11:05:06'),
+	(669, 24, 2, 'флуд флуд флуд флуд флуд', '2019-12-01 11:05:14');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 
 -- Дамп структуры для таблица local.lc.permission_room
@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `permission_room` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы local.lc.permission_room: ~9 rows (приблизительно)
+DELETE FROM `permission_room`;
 /*!40000 ALTER TABLE `permission_room` DISABLE KEYS */;
 INSERT INTO `permission_room` (`user_id`, `room_id`) VALUES
 	(1, 1),
@@ -78,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `privilege` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы local.lc.privilege: ~5 rows (приблизительно)
+DELETE FROM `privilege`;
 /*!40000 ALTER TABLE `privilege` DISABLE KEYS */;
 INSERT INTO `privilege` (`id`, `name`) VALUES
 	(1, 'Guest'),
@@ -92,11 +94,11 @@ CREATE TABLE IF NOT EXISTS `privilege_roles` (
   `roles_id` int(10) NOT NULL,
   `privilege_id` int(10) NOT NULL,
   KEY `priv` (`privilege_id`),
-  KEY `id_roles` (`roles_id`),
-  CONSTRAINT `priv` FOREIGN KEY (`privilege_id`) REFERENCES `privilege` (`id`)
+  KEY `id_roles` (`roles_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы local.lc.privilege_roles: ~5 rows (приблизительно)
+DELETE FROM `privilege_roles`;
 /*!40000 ALTER TABLE `privilege_roles` DISABLE KEYS */;
 INSERT INTO `privilege_roles` (`roles_id`, `privilege_id`) VALUES
 	(3, 3),
@@ -116,6 +118,7 @@ CREATE TABLE IF NOT EXISTS `room` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы local.lc.room: ~7 rows (приблизительно)
+DELETE FROM `room`;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
 INSERT INTO `room` (`id`, `name_room`, `create_time`) VALUES
 	(1, 'Основной', '2019-08-25 18:49:42'),
@@ -136,16 +139,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_email` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `Индекс 2` (`rol_id`),
-  CONSTRAINT `FK_user_privilege_roles` FOREIGN KEY (`rol_id`) REFERENCES `privilege_roles` (`roles_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
+  CONSTRAINT `FK_user_privilege` FOREIGN KEY (`rol_id`) REFERENCES `privilege` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы local.lc.user: ~0 rows (приблизительно)
+-- Дамп данных таблицы local.lc.user: ~5 rows (приблизительно)
+DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`id`, `name`, `rol_id`, `password`, `user_email`) VALUES
 	(1, '111', 2, 'f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae', '1@1.com'),
-	(24, 'Admin', 555, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '1@1.com'),
+	(24, 'Admin', 10, '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', '1@1.com'),
 	(26, '222', 3, '9b871512327c09ce91dd649b3f96a63b7408ef267c8cc5710114e629730cb61f', '1@1.com'),
-	(27, 'Вася', 3, 'f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae', '1@1.com');
+	(27, 'Вася', 3, 'f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae', '1@1.com'),
+	(65, '123', 3, 'f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae', '123@123');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

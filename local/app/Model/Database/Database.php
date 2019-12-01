@@ -10,13 +10,14 @@ namespace app\Model\Database;
      private $query_config;
 
      public function __construct(\mysqli $connection, QueryPrepare $query_config){
-         $this->connection = $connection;
+         $this->connection   = $connection;
          $this->query_config = $query_config;
 
      }
 
 
      public function get_query($request) {
+         //debug($request);
         $this->connection->set_charset("utf8");
         $result = $this->connection->query($request);
         return $result;
@@ -49,6 +50,14 @@ namespace app\Model\Database;
 
      public function insert( string $table, array $queryParam, array $colum){
          return $this->get_query($this->query_config->insert($table, $queryParam, $colum));
+     }
+
+     public function update( string $table, array $queryParam, array $colum){
+         return $this->get_query($this->query_config->update($table, $queryParam, $colum));
+     }
+
+     public function deleted( string $table, array $where){
+         return $this->get_query($this->query_config->deleted($table, $where));
      }
 
  }

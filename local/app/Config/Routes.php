@@ -35,5 +35,16 @@ return
               'controller' => '404',
               'action' => 'error404',
           ],
+        /**
+         * @ajax
+         * this rout return json response for jquery
+         * TODO вариант для нормального возврата json
+         * TODO для нормализации можно добавить маршруты с приставко ajax ,
+         * TODO "/ajax/ + user page/"
+         */
+          'rest' => [
+              'controller' => 'Rest',
+              'action' => 'ajaxHandle',
+          ],
     ],
 ];

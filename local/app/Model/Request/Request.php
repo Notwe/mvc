@@ -47,7 +47,7 @@ class Request{
                 return $this->post->get($key);
             }
         }
-        return $this->post->get('', true);
+        return $this->post->getAllPost();
     }
 
     public function getGet(string $key = null) {
@@ -58,7 +58,7 @@ class Request{
                 return false;
             }
         }
-        return $this->get;
+        return $this->get->getAllGet();
     }
     // end
     public function getMethod () {
@@ -73,9 +73,9 @@ class Request{
         return $this->query_string;
     }
 
-    public function setCookie(array $params) {
+    public function setCookie(array $params, $expire = 100500) {
         foreach ($params as $name => $value) {
-            $this->cookie::setCookies($name, $value);
+            $this->cookie::setCookies($name, $value, $expire);
         }
         return true;
     }

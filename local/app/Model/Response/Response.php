@@ -13,11 +13,6 @@ class Response extends AbstractResponse {
     }
     public function __toString() {
         $this->sendHeaders();
-
-        if(!is_null($this->content) && is_string($this->content)) {
-            return $this->content;
-        }
-
         return $this->content;
     }
 }

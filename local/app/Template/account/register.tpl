@@ -9,7 +9,7 @@
 	<ul>
 </div>
 
-<form action="/account/register" method=post class="register_form">
+<form action="register" method=post class="register_form">
 	<a href="/"></a>
 	<input type=text size="30" name=login placeholder="Имя" value=""><br><br>
 	<input type=email size="30" name=email placeholder="Email" value=""><br><br>

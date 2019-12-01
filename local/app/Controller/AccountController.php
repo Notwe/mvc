@@ -5,32 +5,18 @@ namespace app\Controller;
 class AccountController extends AbstractController {
 
     public function loginAction(){
-        $this->model      = $this->container->get('AuthorizeModel');
-        $this->page_title = 'Авторизация';
-        return $this->resultActionAccount('login', 'autorise');
+        if (!empty($this->container->get('AccountModel')->user_data)){
+            return $this->response->redirect('/main');
+        }
+        return $this->response->response (['account' => 'login'], ['title' => 'Вход']);
     }
 
     public function registerAction() {
-        $this->model      = $this->container->get('RegisterModel');
-        $this->page_title = 'Регистрация';
-
-        return $this->resultActionAccount('register', 'register');
-
-    }
-
-    private function resultActionAccount(string $action, $method) {
-        if ($this->model->userCookieVerification() === true) {
-            $this->response->redirect('/main');
+        if (!empty($this->container->get('AccountModel')->user_data)){
+            return $this->response->redirect('/main');
         }
+        return $this->response->response (['account' => 'register'], ['title' => 'Регистрация']);
 
-        if (!empty($message = $this->model->{$method}())) {
-            return $this->response->json($message);
-        }
-
-        return $this->response->response (
-            ['account' => $action],
-            ['title' => $this->page_title]
-        );
     }
 
 }

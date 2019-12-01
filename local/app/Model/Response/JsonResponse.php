@@ -12,7 +12,6 @@ class JsonResponse extends AbstractResponse {
         if(!empty($this->content) && is_array($this->content)) {
             return json_encode($this->content);
         }
-
-        return $this->content;
+        return false;
     }
 }

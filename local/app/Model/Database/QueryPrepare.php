@@ -12,25 +12,32 @@ class QueryPrepare{
         $this->join = $join;
     }
 
-    public function delete(string $table, $where){
-        return $this->database_connection->query('DELETE FROM ' . $table . ' ' . $this->QueryToString($where));
+    public function deleted(string $table, $where){
+        $query = 'DELETE FROM ' . $table . ' ' . $this->queryToString($where);
+        return $query;
     }
 
     public function select(string $table, array $query_Params = [], array $columns){
-        $query = 'SELECT ' . implode(', ', $columns) . ' FROM ' . $table . ' ' . $this->QueryToString($query_Params);
+        $query = 'SELECT ' . implode(', ', $columns) . ' FROM ' . $table . ' ' . $this->queryToString($query_Params);
         return $query;
     }
 
-    public function insert(string $table, array $inser_tparams, array $colums){
+    public function insert(string $table, array $inser_params, array $colums){
         $query =
-            'INSERT INTO ' . $table . ' ' . implode(', ', $colums) . 'VALUES ('. implode(',', $this->getQueryParams($inser_tparams)) .')';
+            'INSERT INTO ' . $table .
+            ' (' . implode(', ', $colums) . ') ' .
+            'VALUES ('. implode(',', $this->getQueryParams($inser_params)) .')';
         return $query;
     }
-    public function updateQuery(){
-        //
+    public function update(string $table, array $set_params, array $where){
+        $query =
+            'UPDATE ' . $table .
+            ' SET '   . implode(' = ' , $this->constructQueryString($set_params)).
+            ' WHERE ' . implode(' AND ', $this->constructQueryString($where));
+        return $query;
     }
 
-    protected function QueryToString(array $query){
+    protected function queryToString(array $query){
         $limit = '';
         $order = '';
         $result_string = '';
@@ -50,7 +57,9 @@ class QueryPrepare{
             $order = $this->prepareOrderBy($query['ORDER']);
             unset($query['ORDER']);
         }
-
+        /**
+         * this key WHERE is used if request not equal =
+         */
         if(array_key_exists('WHERE', $query)) {
             $where = $this->prepareWhere($query['WHERE']);
             return $result_string . $where .$order . $limit;
@@ -105,19 +114,19 @@ class QueryPrepare{
 
     protected function prepareLimit(array $limit) {
         foreach ($limit as $type => $params) {
-            $result = $type . 'LIMIT' . $this->prepareParamBasedOnType($params);
+            $result = $type . ' LIMIT ' . $this->prepareParamBasedOnType($params);
         }
         return $result;
     }
     protected function prepareOrderBy (array $order) {
         foreach ($order as $type => $params) {
-            $result = $type . $this->prepareParamBasedOnType($params) . ' ';
+            $result = 'ORDER ' . $type . ' ' . $this->prepareParamBasedOnType($params) . ' ';
         }
         return $result;
     }
     protected  function prepareWhere (array $where) {
         foreach ($where as $key => $value) {
-            $result = $key . $this->prepareParamBasedOnType($value) . ' ';
+            $result = $key . '' .  $this->prepareParamBasedOnType($value) . ' ';
         }
         return $result;
     }

@@ -69,22 +69,58 @@
             //
             //Any Model load
             'AccountModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\AccountModel($container);
+                return new \app\Model\AccountModel(
+                    $container->get('Database'),
+                    $container->get('Request')
+                );
             },
             'AuthorizeModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\AuthorizeModel($container);
+                return new \app\Model\AuthorizeModel(
+                    $container->get('Request'),
+                    $container->get('ResponseModel'),
+                    $container->get('Database'),
+                    $container->get('AccountModel')
+                );
             },
             'RegisterModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\RegisterModel($container);
+                return new \app\Model\RegisterModel(
+                    $container->get('Request'),
+                    $container->get('ResponseModel'),
+                    $container->get('Database'),
+                    $container->get('AccountModel')
+                );
             },
             'MainModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\MainModel($container);
+                return new \app\Model\MainModel(
+                    $container->get('Request'),
+                    $container->get('ResponseModel'),
+                    $container->get('Database'),
+                    $container->get('AccountModel')
+                );
             },
             'IndexModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\IndexModel($container);
+                return new \app\Model\IndexModel(
+                    $container->get('Request'),
+                    $container->get('ResponseModel'),
+                    $container->get('Database'),
+                    $container->get('AccountModel')
+                );
             },
+            'ViewOptionsChat' =>  new app\Model\Chat\ViewOptionsChat,
+
             'ChatModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\ChatModel($container);
+                return new \app\Model\Chat\ChatModel(
+                    $container->get('Request'),
+                    $container->get('ResponseModel'),
+                    $container->get('Database'),
+                    $container->get('AccountModel')
+                );
             },
-            //
+            'AjaxValidation' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\AjaxValidation(
+                    $container->get('AuthorizeModel'),
+                    $container->get('RegisterModel'),
+                    $container->get('ChatModel')
+                );
+            },
         ];

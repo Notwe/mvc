@@ -3,39 +3,23 @@ namespace app\Controller;
 
 class MainController extends AbstractController {
 
-    function MainAction(){
-        $this->model      = $this->container->get('MainModel');
-        $this->page_title = 'Чат';
-        if($this->model->userCookieVerification() === false){
-            return $this->container->get('NoAccessResponse');
+    function MainAction() {
+        $main_model = $this->container->get('MainModel');
+        if ($main_model->verify() === false){
+            return $this->response->redirect('/');
         }
-        /**
-         * TODO временно тест в процессе
-         */
-        if($this->container->get('ChatModel')->chatValidation() !== false) {
-            return $this->response->json($this->container->get('ChatModel')->chatValidation());
-        }
-        /**
-         * TODO временно тест end
-         */
         return $this->response->response (
             ['main' => 'main'],
-            ['title' => $this->page_title]
+            ['title' => 'Чет', 'user_name'=> $main_model->getUserData('name')]
         );
 
     }
 
     function GameAction(){
-        $this->model = $this->container->get('MainModel');
-        $this->page_title = 'Игра';
-        if($this->model->userCookieVerification() === false){
-            return $this->container->get('NoAccessResponse');
+        if ($this->container->get('MainModel')->verify() === false){
+            return $this->response->redirect('/');
         }
-
-        return $this->response->response(
-            ['main' => 'game'],
-            ['title' => $this->page_title]
-        );
+        return $this->response->response(['main' => 'game'], ['title' => 'Тест Игра']);
 
     }
 

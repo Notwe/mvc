@@ -5,7 +5,8 @@ namespace app\Model;
 
 
 class AuthorizeModel extends AbstractUserModel {
-
+    private $login;
+    private $password;
 
     public function checksFields(array $login_post_data){
         $error_messages = [];
@@ -20,10 +21,12 @@ class AuthorizeModel extends AbstractUserModel {
 
         }
         if(empty($error_messages)){
-            $password = hash('sha256', $login_post_data['password']);
-            if ($this->findUser($login_post_data['login'], $password) === true ) {
-                $this->getUserData($login_post_data['login'],$password);
+            $this->login    = $login_post_data['login'];
+            $this->password = hash('sha256', $login_post_data['password']);
+
+            if ($this->findUser($this->login, $this->password) === true ) {
                 return [];
+
             } else {
                 $error_messages[] = 'Логин или пароль не совпадают! Попробуйте еще раз...';
                 return $error_messages;
@@ -33,23 +36,31 @@ class AuthorizeModel extends AbstractUserModel {
     }
 
     public function autorise(){
-        $data = $this->container->get('Request')->getPost();
+        $data = $this->request->getPost();
         if(isset($data)&& !empty($data)){
             $error_message = $this->checksFields(array_map('trim', $data));
             if(empty($error_message)) {
                 $this->request->setCookie(
                     [
-                        'login'=> $this->user_data['name'],
-                        'pass' => $this->user_data['password'],
+                        'login'=> $this->login ,
+                        'pass' => $this->password,
                     ]
 
                 );
-                return 'true';
+                return ['true'];
             }
             else{
                 return $error_message;
 
             }
         }
+    }
+
+    public function userAuthorize() {
+        if (!empty($message = $this->autorise())) {
+            return $message;
+        }
+
+        return false;
     }
 }

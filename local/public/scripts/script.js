@@ -58,7 +58,7 @@ $(function() {
 //room list
 $(document).ready(function() {
 	$.ajax({
-            url: '/main',
+            url: '/rest?chat',
             type: 'POST',
 			data: {'room_list':''},
             success: function (data) {

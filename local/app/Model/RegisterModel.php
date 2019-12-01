@@ -5,6 +5,8 @@ namespace app\Model;
 
 
 class RegisterModel extends AbstractUserModel {
+    private $login;
+    private $password;
 
     public function checksFields(array $post_data){
         $error_messages = [];
@@ -34,35 +36,37 @@ class RegisterModel extends AbstractUserModel {
             return $error_messages;
         }
         if (empty($error_messages)) {
-            $password = hash('sha256', $post_data['pass']);
+            $this->login    = $post_data['login'];
+            $this->password = hash('sha256', $post_data['pass']);
+
             if ($this->findUser($post_data['login']) === true ) {
                 $error_messages[] = 'Пользователь с таким именем существует..';
                 return $error_messages;
 
             } else {
-                if ($this->registerUser($post_data['login'],$password,$post_data['email'])) {
-                    $this->user_data = $this->getUserData($post_data['login'],$password);
+                if ($this->register($this->login, $this->password,$post_data['email'])) {
+                    return [];
                 }
-                return [];
+                return $error_messages[] = 'Ошибка регистрации , попробуйте позже...';
 
             }
         }
         return $error_messages;
     }
 
-    public function register() {
-        $data = $this->container->get('Request')->getPost();
+    public function registerUser() {
+        $data = $this->request->getPost();
         if (isset($data) && !empty($data)) {
             $error_message = $this->checksFields(array_map('trim', $data));
             if (empty($error_message)) {
                 $this->request->setCookie(
                     [
-                        'login'=> $this->user_data['name'],
-                        'pass' => $this->user_data['password'],
+                        'login'=> $this->login,
+                        'pass' => $this->password,
                     ]
 
                 );
-                return 'true';
+                return ['true'];
 
             } else {
                 return $error_message;
@@ -71,7 +75,7 @@ class RegisterModel extends AbstractUserModel {
         }
     }
 
-    public function registerUser(string $name, string $password, string $email){
+    public function register(string $name, string $password, string $email){
         $register = $this->database->insert('user',[[$name], [$password], [$email]],['(name, password, user_email)']);
         if($register){
             return true;
@@ -88,5 +92,9 @@ class RegisterModel extends AbstractUserModel {
             }
             return true;
         }
+    }
+
+    public function userRegisterAction () {
+
     }
 }
