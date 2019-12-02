@@ -29,6 +29,10 @@ text-decoration: none;
 
 
 }
+
+#error_message {
+	color: #d43b3b;
+}
 .clyde_message_enther{
 	position:absolute;
 	left:50%;

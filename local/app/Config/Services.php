@@ -106,16 +106,8 @@
                     $container->get('AccountModel')
                 );
             },
-            'ViewOptionsChat' =>  new app\Model\Chat\ViewOptionsChat,
+            'ViewOptions' =>  new app\Model\Chat\ViewOptions,
 
-            'ChatModel' => function (\app\Model\Container\ServiceContainer $container) {
-                return new \app\Model\Chat\ChatModel(
-                    $container->get('Request'),
-                    $container->get('ResponseModel'),
-                    $container->get('Database'),
-                    $container->get('AccountModel')
-                );
-            },
             'AjaxValidation' => function (\app\Model\Container\ServiceContainer $container) {
                 return new \app\Model\AjaxValidation(
                     $container->get('AuthorizeModel'),
@@ -123,4 +115,21 @@
                     $container->get('ChatModel')
                 );
             },
+            /**
+             * Chat models app/Model/Chat
+             */
+            'MessageChatModel'        => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\Chat\Message($container->get('Database'));
+                },
+
+            'ChatModel' => function (\app\Model\Container\ServiceContainer $container) {
+                return new \app\Model\Chat\ChatModel(
+                     $container->get('Request'),
+                     $container->get('ResponseModel'),
+                     $container->get('Database'),
+                     $container->get('AccountModel'),
+                     $container->get('MessageChatModel')
+                 );
+         },
+
         ];

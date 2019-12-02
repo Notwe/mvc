@@ -7,6 +7,7 @@ $(document).ready(function() {
             if(data == 'empty') {
                 return false;
             } else {
+                $('.user_send_message').attr('id', $.trim(data.join()) );
                 getChatMessage(data.join(), '');
             }
         }
@@ -171,7 +172,7 @@ function editMessage(message_id, message) {
             userMessageEdit(message_id, edit_message, action)
         }
     }
-    if (!edit_message) {
+    if (edit_message === "") {
         alert('Сообщение не может быть пустым.');
     }
 }

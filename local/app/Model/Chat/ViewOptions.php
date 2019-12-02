@@ -1,7 +1,7 @@
 <?php
 namespace app\Model\Chat;
 
-class ViewOptionsChat {
+class ViewOptions {
 
     public static function getViewHTMLData($permission) {
         foreach ($permission as $id_role => $name_role) {

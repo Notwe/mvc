@@ -2,9 +2,30 @@
 
 namespace app\Model\Chat;
 use app\Model\AbstractUserModel;
+use app\Model\AccountModel;
+use app\Model\Database\Database;
+use app\Model\Request\Request;
+use app\Model\Response\ResponseModel;
 
 class ChatModel extends AbstractUserModel {
     protected $view_html_chat;
+    /**
+     * @var Message $message
+     */
+    protected $message;
+
+    public function __construct (
+        Request       $request,
+        ResponseModel $response,
+        Database      $database,
+        AccountModel  $account,
+        Message       $message
+    )
+    {
+        $this->message = $message;
+        parent::__construct($request, $response, $database, $account);
+    }
+
     /**
      * @return array|bool|void
      * TODO Еще в проэкте , работает, не разделил еще.
@@ -42,6 +63,10 @@ class ChatModel extends AbstractUserModel {
 
     }
 
+    protected function  userRoomList() {
+        return $this->getUserRooms();
+    }
+
     protected function getRoomMessages($request) {
         if (isset($request['room_id'])) {
             $room_id = $request['room_id'];
@@ -52,7 +77,7 @@ class ChatModel extends AbstractUserModel {
             }
             if ($permission = $this->roomAccess($room_id) === true) {
                 $current_user_room = $this->prepareRoomId($room_id);
-                return $this->getMessage($current_user_room, $message_id);
+                return $this->message->get($current_user_room, $message_id);
             }
         }
         return ['Ошибка! у вас нет дуступа для просмотра этого чата'];
@@ -68,36 +93,6 @@ class ChatModel extends AbstractUserModel {
         return false;
     }
 
-
-
-    protected function  userRoomList() {
-        return $this->getUserRooms();
-    }
-
-    protected function getMessage ( $room_id,  $message_id) {
-        if (!empty($room_id)) {
-            $select = ['user.name, messages.id, message, add_time'];
-            $join   =
-                ['JOIN' => ['user', 'messages.user_id' => 'user.id', 'messages.room_id' => [$room_id]],
-                'WHERE' => ['WHERE messages.id > ' => [$message_id]],
-                 'ORDER' => ['BY' => 'messages.id'], 'LIMIT' => ['DESC' => '50']
-            ];
-            $message_data = [];
-            $data = $this->database->select('messages', $join, $select);
-            while($message = $this->database->fetch_assoc($data)){
-                $message['message'] = htmlspecialchars($message['message'], ENT_QUOTES);
-                $message_data[] = $message;
-            }
-            $message_data = array_reverse($message_data);
-            if (!empty($message_data)) {
-                return $message_data;
-            }
-            return ['empty'];
-        }
-        return false;
-
-    }
-
     /**
      * For edit, or update, or deleted user message
      */
@@ -105,10 +100,7 @@ class ChatModel extends AbstractUserModel {
         if ($this->getUserPrivileges() === true) {
             if (isset($request['id_message']) && isset($request['messages'])) {
                 if (!empty($request['id_message']) && !empty($request['messages'])) {
-                    $id_message = $request['id_message'];
-                    $messages = $request['messages'];
-                    $this->database->update('messages', ['message' => [$messages]], ['id' => [$id_message]]);
-                    return ['confirm'];
+                    return $this->message->updateMessage($request['id_message'], $request['messages']);
                 }
             }
         }
@@ -118,13 +110,11 @@ class ChatModel extends AbstractUserModel {
          if ($this->getUserPrivileges() === true) {
              if (isset($request['id_message'])) {
                  if (!empty($request['id_message']) ) {
-                     $id = $request['id_message'];
-                     $this->database->deleted('messages', ['id' => $id]);
-                     return ['confirm'];
+                     return $this->message->deletedMessage($request['id_message']);
                  }
              }
          }
-         return false;
+         return ['Ошибочка, может у тебя нет прав ? '];
     }
 
     protected function lastUserRoom() {
@@ -144,7 +134,7 @@ class ChatModel extends AbstractUserModel {
      * Moderator
      */
     protected function viewPrivileges () {
-        $this->view_html_chat = ViewOptionsChat::getViewHTMLData($this->getUserPermission());
+        $this->view_html_chat = ViewOptions::getViewHTMLData($this->getUserPermission());
         return $this->view_html_chat;
     }
 
@@ -166,20 +156,13 @@ class ChatModel extends AbstractUserModel {
                 if ($this->roomAccess($request['room_id']) === true) {
                     $id = $this->prepareRoomId($request['room_id']);
                     $message = $request['add_message'];
-                    return $this->addMessage($message, $id, $this->getUserData('id'));
+                    return $this->message->addMessage($message, $id, $this->getUserData('id'));
                 } else {
                     return ['У вас не достаточно прав'];
                 }
             }
             return ['Ой, ошибочка, попробуйте обновить страницу и попробовать еще ... !'];
         }
-    }
-
-    protected function addMessage ($message,  $room, $user) {
-        $colums = ['user_id', 'message', 'room_id'];
-        $params = [$user, [$message], $room];
-        $this->database->insert('messages', $params, $colums);
-        return ['true'];
     }
 
     protected function getUserPrivileges() {

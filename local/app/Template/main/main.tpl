@@ -12,7 +12,7 @@
 </div>
 
 <div class='main_box' id='main_box'>
-	<li id='error_message'></li>
+	<ul id='error_message'></ul>
 	<div class='message_box' id='message_box'></div>
 	<div class='send_message'>
 		<textarea class='user_send_message' name='send_message'></textarea>

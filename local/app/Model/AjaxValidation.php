@@ -3,7 +3,7 @@
 
 namespace app\Model;
 use app\Model\Chat\ChatModel;
-use app\Model\Chat\ViewOptionsChat;
+use app\Model\Chat\ViewOptions;
 use app\Model\Request\Request;
 
 class AjaxValidation {
@@ -33,7 +33,7 @@ class AjaxValidation {
             AuthorizeModel $authorize,
             RegisterModel $register,
             ChatModel $chat
-        ) {
+        ){
         $this->authorize = $authorize;
         $this->register  = $register;
         $this->chat      = $chat;
